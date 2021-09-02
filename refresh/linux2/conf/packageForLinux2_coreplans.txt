@@ -1,0 +1,11 @@
+bash-static
+libuv
+bind
+boost159
+jfrog-cli
+mysql-client
+netcat
+net-tools
+openssl11
+ruby26
+utf8proc

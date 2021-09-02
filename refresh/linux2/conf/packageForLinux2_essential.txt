@@ -1,0 +1,10 @@
+core/hab-studio
+core/patch
+core/gcc
+core/perl
+core/texinfo
+core/expect
+core/dejagnu
+core/inetutils
+core/patchelf
+core/gettext

@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+ENV['HAB_ORIGIN']='core'
+ENV['HAB_FEAT_IGNORE']='true'
+ENV['HAB_STUDIO_SECRET_HAB_FEAT_IGNORE_LOCAL']='true'
+ENV['HAB_NOCOLORING']='true'
+ENV['HAB_NONINTERACTIVE']='true'
+ENV['HAB_STUDIO_SUP']='false'
+ENV['QUIET']=''

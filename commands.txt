@@ -1,0 +1,3 @@
+# How to get list of channels in an origin
+hab bldr channel list core
+
