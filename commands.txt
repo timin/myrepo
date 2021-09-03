@@ -1,3 +1,40 @@
 # How to get list of channels in an origin
 hab bldr channel list core
 
+# How to get origin information (API)
+https://bldr.habitat.sh/v1/depot/origins/timin
+
+# How to get origin keys information (API)
+https://bldr.habitat.sh/v1/depot/origins/timin/keys
+
+# How to get origin key value
+https://bldr.habitat.sh/v1/depot/origins/timin/keys/20210430104004
+
+# How to get list of packages
+https://bldr.habitat.sh/v1/depot/pkgs/core?range=0&distinct=true
+
+# How to get list of all versions(and releases) particular package
+https://bldr.habitat.sh/v1/depot/pkgs/core/gcc
+
+# How to get list of all versions of package (unique list of version of package)
+https://bldr.habitat.sh/v1/depot/pkgs/core/gcc/versions
+
+# How to get latest version of package
+https://bldr.habitat.sh/v1/depot/pkgs/core/gcc/latest
+
+# How to download a package
+https://bldr.habitat.sh/v1/depot/pkgs/core/gcc/9.3.0/20210826051400/download
+
+# How to get all channels where package is present
+https://bldr.habitat.sh/v1/depot/pkgs/core/gcc/9.3.0/20210826051400/channels
+
+# How to get name of all channels for an origin
+https://bldr.habitat.sh/v1/depot/channels/core
+
+# How to get list of all packages in channel
+https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs
+
+# How to get latest version of package in particular channel
+https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs/gcc/latest
+
+
