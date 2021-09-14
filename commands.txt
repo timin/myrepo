@@ -37,4 +37,7 @@ https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs
 # How to get latest version of package in particular channel
 https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs/gcc/latest
 
+# How to get all branch names of repoistory in GitHub
+curl -su timin "https://api.github.com/repos/habitat-sh/core-plans/branches" | jq -r '.[] | "\(.name)"'
+
 
