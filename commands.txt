@@ -34,6 +34,9 @@ https://bldr.habitat.sh/v1/depot/channels/core
 # How to get list of all packages in channel
 https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs
 
+# How to get list of packages in channel specific to a platform
+curl -s https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs/_latest?target=x86_64-linux-kernel2 | jq '.data[] | .name'
+
 # How to get latest version of package in particular channel
 https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs/gcc/latest
 
