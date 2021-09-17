@@ -37,7 +37,17 @@ https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs
 # How to get latest version of package in particular channel
 https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs/gcc/latest
 
-# How to get all branch names of repoistory in GitHub
+# How to get all repositories names in GitHub organisation
+curl -su timin "https://api.github.com/orgs/chef-base-plans/repos?type=all&sort=full_name&per_page=100&page=1" | jq -r '.[] | "\(.name)"'
+
+# How to get all branch names of repository in GitHub
 curl -su timin "https://api.github.com/repos/habitat-sh/core-plans/branches" | jq -r '.[] | "\(.name)"'
 
+# How to checkout(clone) all repos of GitHub organisation
+use script ./getAllRepo.sh
+
+# How to run test cases for Hab Package using inspec
+Run below two commands in Studio after building package
+	hab pkg install chef/inspec
+	hab pkg exec chef/inspec inspec exec . --input-file attributes.yml
 

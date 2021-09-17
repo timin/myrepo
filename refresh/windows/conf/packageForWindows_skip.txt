@@ -1,0 +1,12 @@
+visual-cpp-build-tools-2015
+libsodium
+rust
+bzip2
+zeromq
+openssl
+protobuf
+zlib
+perl
+libarchive
+sqlserver2005
+sql-dmo
