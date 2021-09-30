@@ -51,6 +51,7 @@ node
 node10
 node11
 node12
+node14
 node6
 nuget
 openssl
@@ -71,6 +72,8 @@ python2
 python34
 python36
 python37
+python38
+python39
 raml2html
 reportviewer2010
 rust
