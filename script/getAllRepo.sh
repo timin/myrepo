@@ -3,13 +3,13 @@
 # Brief: A script to checkout(clone) all repositories of GitHub organisation
 # Usage: ./getAllRepo.sh <github_username> <number_of_repos_in_org>
 
-GH_USER=""
-REPO_COUNT=0
-
 # SCOPE: "users" to download all user's repositories or "orgs" to download all orgs's repositories
 SCOPE="orgs"
 # CONTEXT: "user_name" to download all user's repositories or "org_name" to download all org's repositories
 CONTEXT="chef-base-plans"
+
+GH_USER=""
+REPO_COUNT=0
 PAGE=1
 COUNT=0
 

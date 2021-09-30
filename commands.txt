@@ -52,5 +52,8 @@ use script ./getAllRepo.sh
 # How to run test cases for Hab Package using inspec
 Run below two commands in Studio after building package
 	hab pkg install chef/inspec
-	hab pkg exec chef/inspec inspec exec . --input-file attributes.yml
+	hab pkg exec chef/inspec inspec exec . --input-file attributes.yml --chef-license=accept
+
+# How to search package name in JSON string
+curl -s https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/_latest?target=x86_64-linux | jq '.data[] | select(any(. == "hab-pkg-export-container"))'
 
