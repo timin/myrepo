@@ -217,7 +217,6 @@ libfcgi
 libgcrypt
 libgd
 libghthash
-libgpg-error
 libice
 libidn
 libimagequant
