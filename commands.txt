@@ -57,3 +57,5 @@ Run below two commands in Studio after building package
 # How to search package name in JSON string
 curl -s https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/_latest?target=x86_64-linux | jq '.data[] | select(any(. == "hab-pkg-export-container"))'
 
+# How to get dependents(reverse deps) of package
+curl -si https://api.habitat.sh/v1/rdeps/core/php?target=x86_64-linux-kernel2
