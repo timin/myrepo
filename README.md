@@ -4,10 +4,13 @@ my playbox and knowledge store for Habitat
 # What is Habitat Package Refersh
 <definition/description>
 
-Package Refresh can be divided into parts
+Package Refresh can be divided into parts:
 PKG upgrade:
+
 PKG build:
+
 PKG publish:
+
 PKG integrate:
 
 # instruction manual/guides/howto article related to Habitat
