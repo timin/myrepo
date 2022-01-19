@@ -8,4 +8,3 @@ core/dejagnu
 core/inetutils
 core/patchelf
 core/gettext
-core/pkg-config
