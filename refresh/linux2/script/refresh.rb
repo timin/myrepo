@@ -67,7 +67,7 @@ load "./conf/env.rb"
 $base_path="/home/ubuntu/Refresh"
 $buildorder_file="#{$base_path}/conf/packageForLinux2_buildorder.txt"
 $skip_file="#{$base_path}/conf/packageForLinux2_skip.txt"
-$builder_url="https://ec2-35-81-164-100.us-west-2.compute.amazonaws.com/bldr/v1/"
+$builder_url=""
 $auth_token=""
 
 buildorder, toskip = []
