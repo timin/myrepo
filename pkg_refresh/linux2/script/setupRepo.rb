@@ -43,7 +43,7 @@ def download_coreplans()
   	File.foreach("#{$coreplans_file}") { |line|
 		if !$to_skip.include? line
 			pkg_name = line.strip()
-			run_command("cd #{$base_path}/tmp/coreplans; git checkout origin/{#branch_name} -- #{pkg_name}", false)
+			run_command("cd #{$base_path}/tmp/coreplans; git checkout origin/#{$branch_name} -- #{pkg_name}", false)
 		end
 	}
 end
