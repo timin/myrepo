@@ -39,7 +39,7 @@ end
 
 def download_coreplans()
 	puts "Downloading repo of coreplans packages"
-	run_command("cd #{$base_path}/tmp/coreplans; git pull origin master", true)
+	run_command("cd #{$base_path}/tmp/coreplans; git pull origin main", true)
   	File.foreach("#{$coreplans_file}") { |line|
 		if !$to_skip.include? line
 			pkg_name = line.strip()
