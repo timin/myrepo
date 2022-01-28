@@ -39,12 +39,11 @@ end
 
 def download_coreplans()
 	puts "Downloading repo of coreplans packages"
-	run_command("cd #{$base_path}/tmp/coreplans; git pull origin master", true)
+	run_command("cd #{$base_path}/tmp/coreplans; git pull origin main", true)
   	File.foreach("#{$coreplans_file}") { |line|
 		if !$to_skip.include? line
 			pkg_name = line.strip()
-			branch_name ="#{pkg_name}-#{$branch_suffix}"
-			run_command("cd #{$base_path}/tmp/coreplans; git checkout origin/#{branch_name} -- #{pkg_name}", false)
+			run_command("cd #{$base_path}/tmp/coreplans; git checkout origin/#{$branch_name} -- #{pkg_name}", false)
 		end
 	}
 end
@@ -76,7 +75,6 @@ $baseplans_file="#{$base_path}/conf/packageForLinux2_baseplans.txt"
 $skip_file="#{$base_path}/conf/packageForLinux2_skip.txt"
 
 $branch_name="refresh2021q2"
-$branch_suffix = ARGV[0] != nil ? ARGV[0] : 'version-bump'
 
 begin
 	$to_skip = File.readlines("#{$skip_file}")
