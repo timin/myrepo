@@ -136,9 +136,9 @@ func getPackageData(list []string) {
 	}
 
 	// delete content of file
-	err = os.Truncate("packagelist.json", 0)
+	err = os.Remove("packagelist.json")
 	if(err != nil) {
-		log.Println("ERR failed to delete content of packagelist.json; [%s]", err)
+		log.Printf("ERR failed to delete content of packagelist.json; [%s]", err)
 	}
 
 	// write to file
