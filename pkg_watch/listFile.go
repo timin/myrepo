@@ -44,7 +44,7 @@ func main() {
 		}
 
 		// get parameter from planfile
-		getPackageData(list)
+		getPackageData(list, *repoPtr)
 
 	} else {
 		log.Println("ERR invalid command")
@@ -72,7 +72,8 @@ func getPlanfileList(dirpath, target string) ([]string, error) {
 				if(strings.Compare(target, "linux") == 0) {
 				}
 
-				files = append(files, path)
+				var relativePath, _ = filepath.Rel(dirpath, path)
+				files = append(files, relativePath)
 			}
 			return nil
 		})
@@ -80,7 +81,7 @@ func getPlanfileList(dirpath, target string) ([]string, error) {
 	return files, err
 }
 
-func getPackageData(list []string) {
+func getPackageData(list []string, dirpath string) {
 	type Package struct {
 		Planfile string `json:"planfile"`
 		Origin string `json:"pkg_origin"`
@@ -98,7 +99,7 @@ func getPackageData(list []string) {
 	for _, planfile := range list {
 		var cfg, err = ini.LoadSources(ini.LoadOptions{
 			SkipUnrecognizableLines: true,
-			}, planfile)
+			}, dirpath + "/" + planfile)
 
 		if (err != nil) {
 			log.Printf("ERR fail to load planfile [%s], err[%s] \n", planfile, err)
