@@ -64,16 +64,26 @@ func getPlanfileList(dirpath, target string) ([]string, error) {
 				return filepath.SkipDir
 			}
 
-			var r, _ = regexp.Compile("plan\\.sh|plan\\.ps1")
+			var r *regexp.Regexp
+
+			if (target == "linux") {
+				r, _ = regexp.Compile("plan\\.sh")
+			} else if (target == "windows") {
+				r, _ = regexp.Compile("plan\\.ps1")
+			} else {
+				r, _ = regexp.Compile("plan\\.sh|plan\\.ps1")
+			}
+
 			if (info.IsDir() == false && r.MatchString(path) == true) {
 				// remove test planfiles
-
-				// exclude non target specific planfile
-				if(strings.Compare(target, "linux") == 0) {
+				// exclude linux2 planfile if target is linux
+				if (target == "linux" && strings.Contains(path, "kernel2") == false) {
+					var relativePath, _ = filepath.Rel(dirpath, path)
+					files = append(files, relativePath)
+				} else if (target == "windows" || target == "all") {
+					var relativePath, _ = filepath.Rel(dirpath, path)
+					files = append(files, relativePath)
 				}
-
-				var relativePath, _ = filepath.Rel(dirpath, path)
-				files = append(files, relativePath)
 			}
 			return nil
 		})
