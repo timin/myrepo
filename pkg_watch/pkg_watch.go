@@ -15,7 +15,7 @@ import (
 func main() {
 
 	// process arguments
-	cmdPtr := flag.String("cmd", "list", "command/action to perform e.g. list,")
+	cmdPtr := flag.String("cmd", "inventory", "command/action to perform e.g. inventory,")
 	repoPtr := flag.String("repo", "./", "path of source code repositroy")
 	targetPtr := flag.String("target", "linux", "platform e.g. linux, windows, all")
 
@@ -36,7 +36,7 @@ func main() {
 	log.Printf("INFO path of repository [%s] \n", *repoPtr)
 	log.Printf("INFO platform target [%s] \n", *targetPtr)
 
-	if (strings.Compare(*cmdPtr, "list") == 0) {
+	if (strings.Compare(*cmdPtr, "inventory") == 0) {
 		// get list of planfiles from repo
 		var list, err = getPlanfileList(*repoPtr, *targetPtr)
 		if (err != nil) {
@@ -92,6 +92,8 @@ func getPlanfileList(dirpath, target string) ([]string, error) {
 }
 
 func getPackageData(list []string, dirpath string) {
+	var filename string = "list_of_package.json"
+
 	type Package struct {
 		Planfile string `json:"planfile"`
 		Origin string `json:"pkg_origin"`
@@ -147,11 +149,63 @@ func getPackageData(list []string, dirpath string) {
 	}
 
 	// delete content of file
-	err = os.Remove("packagelist.json")
+	err = os.Remove(filename)
 	if(err != nil) {
-		log.Printf("ERR failed to delete content of packagelist.json; [%s]", err)
+		log.Printf("ERR failed to delete content of [%s]; [%s]", filename, err)
+		return
 	}
 
 	// write to file
-	ioutil.WriteFile("packagelist.json", jsonString, 0644)
+	err = ioutil.WriteFile(filename, jsonString, 0644)
+	if(err != nil) {
+		log.Printf("ERR failed to write content of [%s]; [%s]", filename, err)
+		return
+	}
+
+	log.Printf("INFO created list of package; file[%s]", filename)
+}
+
+func getConf(packagelist, versionlist string) {
+	var filename string = "list_of_version_source.json"
+
+	type VersionSource struct {
+		Planfile string `json:"planfile"`
+		Origin string `json:"pkg_origin"`
+		Name string `json:"pkg_name"`
+		Version string `json:"pkg_version"`
+		Source string `json:"pkg_source"`
+		Home string `json:"home"`
+		URL string `json:"url"`
+	}
+
+	var VersionSourceList []VersionSource
+
+	// read packagelist
+	// read versionlist
+
+	// sort versionlist json object
+
+
+	// convert list of JSON
+	jsonString, err := json.Marshal(VersionSourceList)
+	if(err != nil) {
+		log.Printf("ERR failed to encode json versionsourcelist; [%s]", err)
+		return
+	}
+
+	// delete content of file
+	err = os.Remove("./"+filename)
+	if(err != nil) {
+		log.Printf("ERR failed to delete content of [%s]; [%s]", filename, err)
+		return
+	}
+
+	// write to file
+	err = ioutil.WriteFile(filename, jsonString, 0644)
+	if(err != nil) {
+		log.Printf("ERR failed to write content of [%s]; [%s]", filename, err)
+		return
+	}
+
+	log.Printf("INFO created list of version source; file[%s]", filename)
 }
