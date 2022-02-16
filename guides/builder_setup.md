@@ -3,10 +3,10 @@
 Habitat Builder can be installed using Chef Automate. It is also used for authentication while using Builder. To install Automate follow below steps.
  
 1. Create AWS instance with minimum (8 CPU, 32GB of RAM, 100 GB of disk)
-2. Update Linux package index using command "sudo apt update"
-3. update Linux package using command "sudo apt upgrade"
-4. Create a directory using command "mkdir /home/ubuntu/Automate"
-5. Switch to newly created directory "cd /home/ubuntu/Automate"
+2. Create a directory using command "mkdir /home/ubuntu/Automate"
+3. Switch to newly created directory "cd /home/ubuntu/Automate"
+4. Update Linux package index using command "sudo apt update"
+5. Update Linux package using command "sudo apt upgrade"
 6. Generate a SSL certificate using command "openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ssl_key.pem -out ssl_certificate.pem -subj "/C=US/ST=Oregon/L=Portland/O=Company/OU=Dept/CN=<public_dns_of_machine>""
 7. Update kernel parameters for better performance:
 
