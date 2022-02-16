@@ -74,7 +74,7 @@ $coreplans_file="#{$base_path}/conf/packageForLinux2_coreplans.txt"
 $baseplans_file="#{$base_path}/conf/packageForLinux2_baseplans.txt"
 $skip_file="#{$base_path}/conf/packageForLinux2_skip.txt"
 
-$branch_name="refresh2021q2"
+$branch_name=""
 
 begin
 	$to_skip = File.readlines("#{$skip_file}")
