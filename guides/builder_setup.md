@@ -18,7 +18,7 @@ Habitat Builder can be installed using Chef Automate. It is also used for authen
 8. Initialize Automate configuration file using command "sudo ./chef-automate init-config --fqdn <public_dns_of_machine> --certificate /home/ubuntu/Automate/ssl_certificate.pem --private-key /home/ubuntu/Automate/ssl_key.pem"
 9. File named "config.toml" will be generated in current directory with default configuration, if required you can add/edit/update (DEFAULT IS GOOD ENOUGH)
 10. Deploy Automate using command "sudo ./chef-automate deploy --accept-terms-and-mlsa --product automate,builder config.toml"
-11. Copy Automate license file to path "/home/ubuntu/Automate/"
+11. Copy Automate license file to path "curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/automate_license --output automate_license"
 12. Apply Automate license using command "sudo ./chef-automate license apply <license_file>"
 13. Check status of Automate services using command "sudo ./chef-automate status"
 14. Get Automate access and login details using command "sudo cat automate-credentials.toml"
