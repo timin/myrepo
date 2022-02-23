@@ -52,6 +52,11 @@ core/plan-build-ps1
 core/windows-service
 
 ### Chef InSpec
+
+chef/scaffolding-chef-inspec
+
+chef/inspec
+
 ### Chef Infra Client
 ### Chef Infra Server
 ### Chef Automate
