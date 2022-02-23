@@ -62,19 +62,19 @@ chef/chef-infra-client
 
 ### Chef Infra Server
 
-chef-server-nginx
+chef/chef-server-nginx
 
-bookshelf
+chef/bookshelf
 
-oc_id
+chef/oc_id
 
-oc_erchef
+chef/oc_erchef
 
-oc_bifrost
+chef/oc_bifrost
 
-chef-server-ctl
+chef/chef-server-ctl
 
-openresty-noroot
+chef/openresty-noroot
 
 ### Chef Automate
 ### Efortless
