@@ -5,6 +5,7 @@ Packages Refresh, updates all relevant packages in 'core' origin and due to whic
 * Chef Infra Client
 * Chef Infra Server
 * Chef Automate
+* Effortless
 
 ### Chef Habitat
 **Builder:**
@@ -53,10 +54,13 @@ core/windows-service
 
 ### Chef InSpec
 
-chef/scaffolding-chef-inspec
-
 chef/inspec
 
 ### Chef Infra Client
 ### Chef Infra Server
 ### Chef Automate
+### Efortless
+
+chef/scaffolding-chef-infra
+
+chef/scaffolding-chef-infra
