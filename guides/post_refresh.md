@@ -6,7 +6,7 @@ Packages Refresh, updates all relevant packages in 'core' origin and due to whic
 * Chef Infra Server
 * Chef Automate
 
-#### Chef Habitat
+### Chef Habitat
 **Builder:**
 
 habitat/builder-api
@@ -51,7 +51,7 @@ core/plan-build-ps1
 
 core/windows-service
 
-#### Chef InSpec
-#### Chef Infra Client
-#### Chef Infra Server
-#### Chef Automate
+### Chef InSpec
+### Chef Infra Client
+### Chef Infra Server
+### Chef Automate
