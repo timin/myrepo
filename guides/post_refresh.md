@@ -57,7 +57,25 @@ core/windows-service
 chef/inspec
 
 ### Chef Infra Client
+
+chef/chef-infra-client
+
 ### Chef Infra Server
+
+chef-server-nginx
+
+bookshelf
+
+oc_id
+
+oc_erchef
+
+oc_bifrost
+
+chef-server-ctl
+
+openresty-noroot
+
 ### Chef Automate
 ### Efortless
 
