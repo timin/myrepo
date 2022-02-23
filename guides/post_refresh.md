@@ -7,7 +7,7 @@ Packages Refresh, updates all relevant packages in 'core' origin and due to whic
 * Chef Automate
 
 #### Chef Habitat
-Builder:
+**Builder:**
 
 habitat/builder-api
 
@@ -25,7 +25,8 @@ habitat/builder-minio
 
 habitat/builder-worker
 
-Hab:
+**Hab:**
+
 core/backline
 
 core/hab
