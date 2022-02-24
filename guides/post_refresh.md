@@ -28,25 +28,25 @@ habitat/builder-worker
 
 **Hab:**
 
-core/backline
+core/launcher
 
 core/hab
 
-core/launcher
+core/hab-plan-build
 
-core/pkg-cfize
+core/hab-backline
 
-core/pkg-export-container
+core/hab-pkg-export-container
 
-core/pkg-export-tar
+core/hab-pkg-cfize
 
-core/pkg-mesosize
+core/hab-pkg-export-tar
 
-core/plan-build
+core/hab-pkg-mesosize
 
-core/studio
+core/hab-studio
 
-core/sup
+core/hab-sup
 
 core/plan-build-ps1
 
