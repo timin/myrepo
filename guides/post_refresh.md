@@ -1,9 +1,11 @@
 Packages Refresh, updates all relevant packages in 'core' origin and due to which all dependent Chef products needs to be updated. List of Chef products
 
 * Chef Habitat
+* Chef MLSA
 * Chef InSpec
 * Chef Infra Client
 * Chef Infra Server
+* Chef ODFE
 * Chef Automate
 * Effortless
 
@@ -52,6 +54,10 @@ core/plan-build-ps1
 
 core/windows-service
 
+### Chef MLSA
+
+chef/mlsa
+
 ### Chef InSpec
 
 chef/inspec
@@ -61,6 +67,8 @@ chef/inspec
 chef/chef-infra-client
 
 ### Chef Infra Server
+
+chef/openresty-noroot
 
 chef/chef-server-nginx
 
@@ -74,9 +82,19 @@ chef/oc_bifrost
 
 chef/chef-server-ctl
 
-chef/openresty-noroot
+### Chef ODFE
+
+chef/metricbeat
+
+chef/journalbeat
+
+chef/kibana-odfe
+
+chef/elasticsearch-odfe
 
 ### Chef Automate
+
+
 ### Efortless
 
 chef/scaffolding-chef-infra
