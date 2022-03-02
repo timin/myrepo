@@ -7,8 +7,10 @@ Below are instruction manual to install, configure and connect Habitat to Builde
 ### B. On Linux2
 
 1. Create AWS instance
-2. Install Habitat using command "curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash -s -- -t x86_64-linux-kernel2"
-3. Configure Habitat CLI using command "hab cli setup" and follow instructions on screen
+2. Update ubuntu "sudo apt update"
+3. update ubuntu packages "sudo apt upgrade < Y"
+4. Install Habitat using command "curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash -s -- -t x86_64-linux-kernel2"
+5. Configure Habitat CLI using command "hab cli setup" and follow instructions on screen
 
    **Note: Do not generate origin key using setup, can be downloaded from Builder**
 
