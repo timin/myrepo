@@ -15,7 +15,7 @@ Below are instruction manual to install, configure and connect Habitat to Builde
    **Note: Do not generate origin key using setup, can be downloaded from Builder**
 
 4. Copy SSL certificate of Builder to machine
-5. Configure SSL certificate of Builder in bashrc, adding "export SSL_CERT_FILE=<path_tossl_certificate_file>"
+5. Configure SSL certificate of Builder in bashrc, adding "export SSL_CERT_FILE=/home/ubuntu/ssl_certificate.pem"
 6. Set Habitat Auth token
 7. Download public origin key using command "hab origin key download core"
 8. Download private key using command "hab origin key download core --secret"
