@@ -7,7 +7,7 @@ Below are instruction manual to setup machine for Package Refresh; building pack
 **B. On Linux2**
 
 1. Setup a Linux2 environment for builing packages, [tutorial](./habitat_setup.md)
-2. Install Ruby using command "sudo apt install ruby"
+2. Install Ruby using command "sudo apt install ruby -y"
 3. Install Gems using command "sudo gem install dotenv"
 4. Download script for Package Refresh using command "git clone git@github.com:habitat-sh/core-plans-dev.git --branch nimitworks ~/Refresh"
 5. Change directory using command "cd ~/Refresh"
