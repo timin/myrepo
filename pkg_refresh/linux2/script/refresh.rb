@@ -49,7 +49,7 @@ def refresh(list, skip)
 	$LOG.debug("Changed pkg_ident to #{ENV['pkg_ident']}")
 	$LOG.debug("Changed pkg_artifact to #{ENV['pkg_artifact']}")
 
-	run_command("hab pkg upload results/#{ENV['pkg_artifact']} -u #{$builder_url} -z #{$auth_token} -c stable")
+	run_command("hab pkg upload results/#{ENV['pkg_artifact']} -u #{$builder_url} -z #{$auth_token} -c #{$builder_channel}")
 
 	$LOG.info("Uploaded #{ENV['pkg_artifact']} to #{$builder_url}:stable")
 	}
@@ -68,6 +68,7 @@ $base_path="/home/ubuntu/Refresh"
 $buildorder_file="#{$base_path}/conf/packageForLinux2_buildorder.txt"
 $skip_file="#{$base_path}/conf/packageForLinux2_skip.txt"
 $builder_url=""
+$builder_channel=""
 $auth_token=""
 
 buildorder, toskip = []
