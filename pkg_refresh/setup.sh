@@ -38,6 +38,12 @@ setupHabitat() {
 }
 
 setupPackageRefresh() {
+	cd /home/ubuntu/refresh
+	mkdir -p conf script
+
+	# copy conf files
+	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/linux2/conf/packageForLinux2_baseplans.txt
+	# copy script files
 	exit 1
 }
 
