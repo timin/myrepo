@@ -31,7 +31,7 @@ setupHabitat() {
 	hab origin key download core --secret
 	
 	# create directory for package refresh
-	mkdir /home/ubuntu/Refresh
+	mkdir -p /home/ubuntu/Refresh
 	cd /home/ubuntu/Refresh/
 	
 	# hab studio(or plan builder) ready for use
