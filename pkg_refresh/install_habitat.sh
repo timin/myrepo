@@ -13,7 +13,7 @@ main() {
 	# set habitat license
 	hab license accept
 
-	# set hab conf
+	# configure habitat
 	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/cli.toml --output /home/ubuntu/.hab/etc/cli.toml
 	
 	# set ssl certificate
