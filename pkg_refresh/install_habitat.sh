@@ -24,6 +24,12 @@ main() {
 	
 	# download public key from BLDR
 	hab origin key download core --secret
+	
+	# create directory for package refresh
+	mkdir /home/ubuntu/Refresh
+	cd /home/ubuntu/Refresh/
+	
+	# hab studio(or plan builder) ready for use
 
   exit
 
