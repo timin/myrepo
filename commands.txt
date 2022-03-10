@@ -59,3 +59,8 @@ curl -s https://bldr.habitat.sh/v1/depot/channels/core/stable/pkgs/_latest?targe
 
 # How to get dependents(reverse deps) of package
 curl -si https://api.habitat.sh/v1/rdeps/core/php?target=x86_64-linux-kernel2
+
+# How to connect with Habitat database
+psql -h 127.0.0.1 builder -U hab -p 5433
+
+#curl -s https://api.habitat.sh/v1/rdeps/core/libtool | jq -r '.rdeps[]' | grep "core/\|^chef/"
