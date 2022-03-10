@@ -38,6 +38,7 @@ setupHabitat() {
 }
 
 setupPackageRefresh() {
+	exit 1
 }
 
 main "$@" || exit 99
