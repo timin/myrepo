@@ -1,26 +1,488 @@
 [
   {
     "pkg_origin": "core",
-    "pkg_name": "acl",
-    "home": "anithya",
-    "url": "https://download.savannah.gnu.org/releases/acl/"
-  },
-  {
-    "pkg_origin": "core",
-    "pkg_name": "alsa-lib",
-    "home": "anithya",
-    "url": "ftp://ftp.alsa-project.org/pub/lib/"
+    "pkg_name": "aws-cli",
+    "home": "github",
+    "url": "https://api.github.com/repos/aws/aws-cli/releases"
   },
   {
     "pkg_origin": "core",
     "pkg_name": "buildah",
     "home": "github",
-    "url":"https://api.github.com/repos/containers/buildah/releases"
+    "url": "https://api.github.com/repos/containers/buildah/releases"
   },
   {
-    "pkg_origin":"core",
-    "pkg_name":"check",
-    "home":"github",
-    "url":"https://api.github.com/repos/libcheck/check/releases"
+    "pkg_origin": "core",
+    "pkg_name": "check",
+    "home": "github",
+    "url": "https://api.github.com/repos/libcheck/check/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "chef",
+    "home": "github",
+    "url": "https://api.github.com/repos/chef/chef/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "concourse",
+    "home": "github",
+    "url": "https://api.github.com/repos/concourse/concourse/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "curl",
+    "home": "github",
+    "url": "https://api.github.com/repos/curl/curl/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "cyrus-sasl",
+    "home": "github",
+    "url": "https://api.github.com/repos/cyrusimap/cyrus-sasl/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "dep",
+    "home": "github",
+    "url": "https://api.github.com/repos/golang/dep/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "dex",
+    "home": "github",
+    "url": "https://api.github.com/repos/dexidp/dex/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "elixir",
+    "home": "github",
+    "url": "https://api.github.com/repos/elixir-lang/elixir/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "erlang",
+    "home": "github",
+    "url": "https://api.github.com/repos/erlang/otp/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "erlang16",
+    "home": "github",
+    "url": "https://api.github.com/repos/erlang/otp/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "erlang18",
+    "home": "github",
+    "url": "https://api.github.com/repos/erlang/otp/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "erlang19",
+    "home": "github",
+    "url": "https://api.github.com/repos/erlang/otp/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "erlang20",
+    "home": "github",
+    "url": "https://api.github.com/repos/erlang/otp/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "erlang21",
+    "home": "github",
+    "url": "https://api.github.com/repos/erlang/otp/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "erlang22",
+    "home": "github",
+    "url": "https://api.github.com/repos/erlang/otp/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "expat",
+    "home": "github",
+    "url": "https://api.github.com/repos/libexpat/libexpat/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "flex",
+    "home": "github",
+    "url": "https://api.github.com/repos/westes/flex/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "gdal",
+    "home": "github",
+    "url": "https://api.github.com/repos/OSGeo/gdal/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "gecode",
+    "home": "github",
+    "url": "https://api.github.com/repos/Gecode/gecode/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "hugo",
+    "home": "github",
+    "url": "https://api.github.com/repos/gohugoio/hugo/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "inspec",
+    "home": "github",
+    "url": "https://api.github.com/repos/inspec/inspec/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "jq-static",
+    "home": "github",
+    "url": "https://api.github.com/repos/stedolan/jq/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "libarchive",
+    "home": "github",
+    "url": "https://api.github.com/repos/libarchive/libarchive/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "libevent",
+    "home": "github",
+    "url": "https://api.github.com/repos/libevent/libevent/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "libffi",
+    "home": "github",
+    "url": "https://api.github.com/repos/libffi/libffi/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "libseccomp",
+    "home": "github",
+    "url": "https://api.github.com/repos/seccomp/libseccomp/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "libyaml",
+    "home": "github",
+    "url": "https://api.github.com/repos/yaml/libyaml/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "mg",
+    "home": "github",
+    "url": "https://api.github.com/repos/hboetes/mg/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "minio",
+    "home": "github",
+    "url": "https://api.github.com/repos/minio/minio/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "nghttp2",
+    "home": "github",
+    "url": "https://api.github.com/repos/nghttp2/nghttp2/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "node",
+    "home": "github",
+    "url": "https://api.github.com/repos/nodejs/node/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "node12",
+    "home": "github",
+    "url": "https://api.github.com/repos/nodejs/node/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "node14",
+    "home": "none",
+    "url": "https://api.github.com/repos/nodejs/node/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "patchelf",
+    "home": "github",
+    "url": "https://api.github.com/repos/NixOS/patchelf/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "proj",
+    "home": "github",
+    "url": "https://api.github.com/repos/OSGeo/PROJ/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "protobuf",
+    "home": "github",
+    "url": "https://api.github.com/repos/protocolbuffers/protobuf/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "protobuf-cpp",
+    "home": "github",
+    "url": "https://api.github.com/repos/protocolbuffers/protobuf/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "protobuf-rust",
+    "home": "github",
+    "url": "https://api.github.com/repos/protocolbuffers/protobuf/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "protobuf2",
+    "home": "github",
+    "url": "https://api.github.com/repos/protocolbuffers/protobuf/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "rq",
+    "home": "github",
+    "url": "https://api.github.com/repos/dflemstr/rq/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "runc",
+    "home": "github",
+    "url": "https://api.github.com/repos/opencontainers/runc/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "rust",
+    "home": "github",
+    "url": "https://api.github.com/repos/rust-lang/rust/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "shadow",
+    "home": "github",
+    "url": "https://api.github.com/repos/shadow-maint/shadow/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "sqitch",
+    "home": "github",
+    "url": "https://api.github.com/repos/sqitchers/sqitch/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "terraform",
+    "home": "github",
+    "url": "https://api.github.com/repos/hashicorp/terraform/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "xxhash",
+    "home": "github",
+    "url": "https://api.github.com/repos/Cyan4973/xxHash/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "zeromq",
+    "home": "github",
+    "url": "https://api.github.com/repos/zeromq/libzmq/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "asciinema",
+    "home": "github",
+    "url": "https://api.github.com/repos/asciinema/asciinema/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "aspcud",
+    "home": "github",
+    "url": "https://api.github.com/repos/potassco/aspcud/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "avisynthplus",
+    "home": "github",
+    "url": "https://api.github.com/repos/AviSynth/AviSynthPlus/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "azure-cli",
+    "home": "github",
+    "url": "https://api.github.com/repos/Azure/azure-cli/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "bash-completion",
+    "home": "github",
+    "url": "https://api.github.com/repos/scop/bash-completion/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "bdwgc",
+    "home": "github",
+    "url": "https://api.github.com/repos/ivmai/bdwgc/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "bdwgc7",
+    "home": "github",
+    "url": "https://api.github.com/repos/ivmai/bdwgc/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "bdwgc8",
+    "home": "github",
+    "url": "https://api.github.com/repos/ivmai/bdwgc/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "benchmark",
+    "home": "github",
+    "url": "https://api.github.com/repos/google/benchmark/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "buildah",
+    "home": "github",
+    "url": "https://api.github.com/repos/containers/buildah/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "buildkite-agent",
+    "home": "github",
+    "url": "https://api.github.com/repos/buildkite/agent/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "buildkite-cli",
+    "home": "github",
+    "url": "https://api.github.com/repos/buildkite/cli/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "bundler",
+    "home": "github",
+    "url": "https://api.github.com/repos/rubygems/rubygems/releases"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "c-ares",
+    "home": "github",
+    "url": "https://api.github.com/repos/c-ares/c-ares/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "caddy",
+    "home": "github",
+    "url": "https://api.github.com/repos/caddyserver/caddy/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "camlp4",
+    "home": "github",
+    "url": "https://api.github.com/repos/camlp4/camlp4/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "ccache",
+    "home": "github",
+    "url": "https://api.github.com/repos/ccache/ccache/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "cerebro",
+    "home": "github",
+    "url": "https://api.github.com/repos/lmenezes/cerebro/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "certstrap",
+    "home": "github",
+    "url": "https://api.github.com/repos/square/certstrap/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "clingo",
+    "home": "github",
+    "url": "https://api.github.com/repos/potassco/clingo/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "composer",
+    "home": "github",
+    "url": "https://api.github.com/repos/composer/composer/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "concourse",
+    "home": "github",
+    "url": "https://api.github.com/repos/concourse/concourse/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "concourse-fly",
+    "home": "github",
+    "url": "https://api.github.com/repos/concourse/concourse/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "consul",
+    "home": "github",
+    "url": "https://api.github.com/repos/hashicorp/consul/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "coredns",
+    "home": "github",
+    "url": "https://api.github.com/repos/coredns/coredns/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "cppcheck",
+    "home": "github",
+    "url": "https://api.github.com/repos/danmar/cppcheck/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "cpputest",
+    "home": "github",
+    "url": "https://api.github.com/repos/cpputest/cpputest/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "crate",
+    "home": "github",
+    "url": "https://api.github.com/repos/crate/crate/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "curator",
+    "home": "github",
+    "url": "https://api.github.com/repos/elastic/curator/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "curator4",
+    "home": "github",
+    "url": "https://api.github.com/repos/elastic/curator/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "curl-static-musl",
+    "home": "github",
+    "url": "https://api.github.com/repos/curl/curl/releases/latest"
+  },
+  {
+    "pkg_origin": "core",
+    "pkg_name": "github_changelog_generator",
+    "home": "",
+    "url": ""
   }
 ]
