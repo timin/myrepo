@@ -27,12 +27,17 @@ main() {
 		esac
 	done
 
-	if [[ $INSTALL == "linux" && $INSTALL != "" ]];
+	if [[ $INSTALL == "" ]];
+	then
+		# error
+		printf ">*-()> invalid -i parameter value \n"
+		exit 99
+	elfi [[ $INSTALL == "linux" ]];
 	then
 		# install hab for linux
 		installHabitat "x86_64-linux"
 		printf ">*-()> habitat for linux is installed \n"
-	elif [[ $INSTALL == "linux2" && $INSTALL != "" ]];
+	elif [[ $INSTALL == "linux2" ]];
 	then
 		# install hab for linux2
 		installHabitat "x86_64-linux-kernel2"
