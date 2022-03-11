@@ -84,14 +84,14 @@ setupHabitat() {
 	# hab env variables
 	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/refresh.rc --output /home/ubuntu/Refresh/conf/refresh.rc
 	
+	# set env in bashrc
+	echo "source /home/ubuntu/Refresh/conf/refresh.rc" >> /home/ubuntu/.bashrc
+	
 	# download public key from on-premise BLDR
 	hab origin key download core
 	
 	# download private key from on-premise BLDR
 	hab origin key download core --secret
-	
-	# set env in bashrc
-	echo "source /home/ubuntu/Refresh/conf/refresh.rc" > /home/ubuntu/.bashrc
 }
 
 setupPackageRefresh() {
