@@ -78,6 +78,9 @@ setupHabitat() {
 	
 	# download private key from on-premise BLDR
 	hab origin key download core --secret
+	
+	# set env in bashrc
+	echo "source /home/ubuntu/Refresh/conf/refresh.rc" > /home/ubuntu/.bashrc
 }
 
 setupPackageRefresh() {
