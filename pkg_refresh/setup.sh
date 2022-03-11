@@ -86,7 +86,7 @@ setupHabitat() {
 	
 	# set env in bashrc
 	echo "source /home/ubuntu/Refresh/conf/refresh.rc" >> /home/ubuntu/.bashrc
-	`source /home/ubuntu/Refresh/conf/refresh.rc`
+	source /home/ubuntu/Refresh/conf/refresh.rc
 	
 	# download public key from on-premise BLDR
 	hab origin key download core
