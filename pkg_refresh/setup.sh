@@ -40,6 +40,7 @@ main() {
 	fi
 
 	if [[ $SETUP == "y" ]];
+	then
 		# configure habita
 		setupHabitat
 
