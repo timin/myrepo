@@ -94,6 +94,7 @@ setupPackageRefresh() {
 	# copy script files
 	# clone package repo
 	git clone https://github.com/habitat-sh/core-plans.git /home/ubuntu/Refresh/repo
+	git --git-dir /home/ubuntu/Refresh/repo/.git switch $REFRESH_BRANCH
 }
 
 main "$@" || exit 99
