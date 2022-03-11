@@ -41,7 +41,7 @@ main() {
 
 	if [[ $SETUP == "y" ]];
 	then
-		# configure habita
+		# configure habitat
 		setupHabitat
 
 		# configure package refresh
