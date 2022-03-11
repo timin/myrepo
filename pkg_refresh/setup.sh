@@ -27,15 +27,15 @@ main() {
 	then
 		# install hab for linux
 		installHabitat "x86_64-linux"
-		printf "habitat for linux is installed \n"
+		printf ">*-()> habitat for linux is installed \n"
 	elif [[ $INSTALL == "linux2" ]];
 	then
 		# install hab for linux2
 		installHabitat "x86_64-linux-kernel2"
-		printf "habitat for linux2 is installed \n"
+		printf ">*-()> habitat for linux2 is installed \n"
 	else
 		# error
-		printf "unknown -i parameter value \n"
+		printf ">*-()> invalid -i parameter value \n"
 		exit 99
 	fi
 
@@ -46,7 +46,7 @@ main() {
 
 		# configure package refresh
 		#setupPackageRefresh
-		print "habitat package refresh setup is finished :) \n"
+		print ">*-()> habitat package refresh setup is finished :) \n"
 	fi
 }
 
