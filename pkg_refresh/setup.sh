@@ -69,13 +69,13 @@ installHabitat() {
 }
 
 setupHabitat() {
+	mkdir -p /home/ubuntu/Refresh/conf /home/ubuntu/Refresh/script
+	
 	# configure habitat
-	mkdir /home/ubuntu/.hab/etc
-	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/cli.toml --output /home/ubuntu/.hab/etc/cli.toml
+	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/cli.toml --output /home/ubuntu/Refresh/conf/cli.toml
 	
 	# set ssl certificate
-	mkdir /home/ubuntu/.hab/cache/ssl
-	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/ssl_certificate.pem --output /home/ubuntu/.hab/cache/ssl/cert.pem
+	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/ssl_certificate.pem --output /home/ubuntu/Refresh/conf/ssl_certificate.pem
 	
 	# download public key from on-premise BLDR
 	hab origin key download core
