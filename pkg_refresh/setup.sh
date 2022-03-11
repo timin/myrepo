@@ -27,30 +27,25 @@ main() {
 	then
 		# install hab for linux
 		installHabitat "x86_64-linux"
+		printf "habitat for linux is installed \n"
 	elif [[ $INSTALL == "linux2" ]];
 	then
 		# install hab for linux2
 		installHabitat "x86_64-linux-kernel2"
+		printf "habitat for linux2 is installed \n"
 	else
 		# error
-		echo "unknown -i parameter value"
+		printf "unknown -i parameter value \n"
 		exit 99
 	fi
 
-	if [[ $SETUP == "habitat" ]];
-	then
-		# configure habitat
+	if [[ $SETUP == "y" ]];
+		# configure habita
 		setupHabitat
-		exit 1
-	elif [[ $SETUP == "refresh" ]];
-	then
+
 		# configure package refresh
 		setupPackageRefresh
-		exit 1
-	else
-		# error
-		echo "unknown -s parameter value"
-		exit 99
+		print "refresh setup is complete \n"
 	fi
 }
 
@@ -75,17 +70,17 @@ setupHabitat() {
 	# set ssl certificate
 	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/ssl_certificate.pem --output /home/ubuntu/Refresh/conf/ssl_certificate.pem
 	
+	# hab env variables
+	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/refresh.rc?token=GHSAT0AAAAAABO5H72P46NKLVS57DUHWKQYYRLNNZA --output /home/ubuntu/Refresh/conf/refresh.rc
+
+	# set refresh conf
+	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/refresh.conf?token=GHSAT0AAAAAABO5H72OSUVJT3WF6X4DJALCYRLNUKA --output /home/ubuntu/Refresh/conf/refresh.conf
+
 	# download public key from on-premise BLDR
 	hab origin key download core
 	
 	# download private key from on-premise BLDR
 	hab origin key download core --secret
-	
-	# create directory for package refresh
-	mkdir -p /home/ubuntu/Refresh
-	cd /home/ubuntu/Refresh/
-	
-	echo "hab studio(or plan builder) ready for use :) \n"
 }
 
 setupPackageRefresh() {
