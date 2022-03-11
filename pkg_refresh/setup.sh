@@ -63,10 +63,10 @@ setupHabitat() {
 	# set ssl certificate
 	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/ssl_certificate.pem --output /home/ubuntu/.hab/cache/ssl/cert.pem
 	
-	# download public key from BLDR
+	# download public key from on-premise BLDR
 	hab origin key download core
 	
-	# download private key from BLDR
+	# download private key from on-premise BLDR
 	hab origin key download core --secret
 	
 	# create directory for package refresh
@@ -77,11 +77,15 @@ setupHabitat() {
 }
 
 setupPackageRefresh() {
-	cd /home/ubuntu/refresh
+	cd /home/ubuntu/Refresh
 	mkdir -p conf script
 
 	# copy conf files
-	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/linux2/conf/packageForLinux2_baseplans.txt
+	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/refresh.rc --output /home/ubuntu/Refresh/conf/refresh.rc
+	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/refresh.conf --output /home/ubuntu/Refresh/conf/refresh.conf
+	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/linux2/packageForLinux2_essential.txt --output /home/ubuntu/Refresh/conf/packageForLinux2_essential.txt
+	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/linux2/packageForLinux2.txt --output /home/ubuntu/Refresh/conf/packageForLinux2.txt
+
 	# copy script files
 	exit 1
 }
