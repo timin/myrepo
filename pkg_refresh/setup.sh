@@ -32,7 +32,7 @@ main() {
 		# error
 		printf ">*-()> invalid -i parameter value \n"
 		exit 99
-	elfi [[ $INSTALL == "linux" ]];
+	elif [[ $INSTALL == "linux" ]];
 	then
 		# install hab for linux
 		installHabitat "x86_64-linux"
