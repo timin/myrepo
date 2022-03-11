@@ -3,6 +3,10 @@
 set -eou pipefail
 
 main() {
+	local INSTALL=""
+	local SETUP=""
+	local argc=$#
+
 	for a in "$@";
 	do
 		case $a in
@@ -23,12 +27,12 @@ main() {
 		esac
 	done
 
-	if [[ $INSTALL == "linux" ]];
+	if [[ $INSTALL == "linux" && $INSTALL != "" ]];
 	then
 		# install hab for linux
 		installHabitat "x86_64-linux"
 		printf ">*-()> habitat for linux is installed \n"
-	elif [[ $INSTALL == "linux2" ]];
+	elif [[ $INSTALL == "linux2" && $INSTALL != "" ]];
 	then
 		# install hab for linux2
 		installHabitat "x86_64-linux-kernel2"
