@@ -50,10 +50,6 @@ main() {
 }
 
 installHabitat() {
-	# update ubuntu packages
-	sudo apt update
-	sudo apt upgrade -y
-
 	# install habitat program
 	curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash -s -- -t $1
 
@@ -62,6 +58,11 @@ installHabitat() {
 }
 
 setupHabitat() {
+	# update ubuntu packages
+	sudo apt update
+	sudo apt upgrade -y
+	
+	# create directory
 	mkdir -p /home/ubuntu/Refresh/conf /home/ubuntu/Refresh/script
 	
 	# configure habitat
