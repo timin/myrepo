@@ -1,3 +1,4 @@
+export REFRESH_BRANCH=""
 export SSL_CERT_FILE="/home/ubuntu/Refresh/conf/ssl_certificate.pem"
 
 export HAB_BLDR_URL="https://ec2-35-80-10-51.us-west-2.compute.amazonaws.com/bldr/v1/"
