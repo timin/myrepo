@@ -1,6 +1,9 @@
-export HAB_ORIGIN="core"
 export HAB_BLDR_URL="https://ec2-35-80-10-51.us-west-2.compute.amazonaws.com/bldr/v1/"
 export HAB_AUTH_TOKEN="_Qk9YLTEKYmxkci0yMDIyMDIxNjEwNTc0MQpibGRyLTIwMjIwMjE2MTA1NzQxCnhvSlR4WmlkZXFTN08yLzhZdDJ1SW8yTE52SFZQa3pWCndZcUxYMG5xaS9iWnc2ZEttZ2J3NWl0eVRVVnp4U2ZEdG5uUzFHN05rWUNKeGpBNw=="
+
+export HAB_ORIGIN="core"
+export HAB_NOCOLORING="true"
+export HAB_NONINTERACTIVE="true"
 export HAB_FEAT_IGNORE_LOCAL="true"
 export HAB_STUDIO_SECRET_HAB_FEAT_IGNORE_LOCAL="true"
 
