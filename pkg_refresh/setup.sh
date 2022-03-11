@@ -50,7 +50,7 @@ main() {
 
 		# configure package refresh
 		#setupPackageRefresh
-		print ">*-()> habitat package refresh setup is finished :) \n"
+		printf ">*-()> habitat package refresh setup is finished :) \n"
 	fi
 }
 
