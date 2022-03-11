@@ -54,7 +54,7 @@ main() {
 		setupHabitat
 
 		# configure package refresh
-		setupPackageRefresh
+		#setupPackageRefresh
 		printf ">*-()> habitat package refresh setup is finished :) \n"
 	fi
 }
