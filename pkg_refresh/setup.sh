@@ -45,7 +45,7 @@ main() {
 
 		# configure package refresh
 		setupPackageRefresh
-		print "refresh setup is complete \n"
+		print "habitat package refresh setup is complete \n"
 	fi
 }
 
