@@ -27,17 +27,17 @@ main() {
 	then
 		# install hab for linux
 		installHabitat "x86_64-linux"
-	elif [[$INSTALL == "linux2" ]];
+	elif [[ $INSTALL == "linux2" ]];
 	then
 		# install hab for linux2
 		installHabitat "x86_64-linux-kernel2"
 	fi
 
-	if [[ $SETUP == "" ]];
+	if [[ $SETUP == "habitat" ]];
 	then
 		# configure habitat
 		setupHabitat
-	elif [[ $SETUP == "" ]];
+	elif [[ $SETUP == "refresh" ]];
 	then
 		# configure package refresh
 		setupPackageRefresh
