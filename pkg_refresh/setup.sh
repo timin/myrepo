@@ -27,12 +27,10 @@ main() {
 	then
 		# install hab for linux
 		installHabitat "x86_64-linux"
-		exit 1
 	elif [[ $INSTALL == "linux2" ]];
 	then
 		# install hab for linux2
 		installHabitat "x86_64-linux-kernel2"
-		exit 1
 	else
 		# error
 		echo "unknown -i parameter value"
