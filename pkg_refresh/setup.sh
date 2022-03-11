@@ -50,7 +50,7 @@ installHabitat() {
 	sudo apt upgrade -y
 
 	# install habitat program
-	curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash -s -- -t $type
+	curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash -s -- -t $1
 
 	# set habitat license
 	hab license accept
