@@ -71,11 +71,8 @@ setupHabitat() {
 	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/ssl_certificate.pem --output /home/ubuntu/Refresh/conf/ssl_certificate.pem
 	
 	# hab env variables
-	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/refresh.rc?token=GHSAT0AAAAAABO5H72P46NKLVS57DUHWKQYYRLNNZA --output /home/ubuntu/Refresh/conf/refresh.rc
-
-	# set refresh conf
-	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/refresh.conf?token=GHSAT0AAAAAABO5H72OSUVJT3WF6X4DJALCYRLNUKA --output /home/ubuntu/Refresh/conf/refresh.conf
-
+	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/refresh.rc --output /home/ubuntu/Refresh/conf/refresh.rc
+	
 	# download public key from on-premise BLDR
 	hab origin key download core
 	
@@ -84,17 +81,16 @@ setupHabitat() {
 }
 
 setupPackageRefresh() {
-	cd /home/ubuntu/Refresh
-	mkdir -p conf script
-
+	# set refresh conf
 	# copy conf files
-	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/refresh.rc --output /home/ubuntu/Refresh/conf/refresh.rc
 	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/refresh.conf --output /home/ubuntu/Refresh/conf/refresh.conf
+
 	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/linux2/packageForLinux2_essential.txt --output /home/ubuntu/Refresh/conf/packageForLinux2_essential.txt
 	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/linux2/packageForLinux2.txt --output /home/ubuntu/Refresh/conf/packageForLinux2.txt
 
 	# copy script files
-	exit 1
+	# clone package repo
+	git clone https://github.com/habitat-sh/core-plans.git /home/ubuntu/Refresh/repo
 }
 
 main "$@" || exit 99
