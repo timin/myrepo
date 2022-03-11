@@ -70,9 +70,11 @@ installHabitat() {
 
 setupHabitat() {
 	# configure habitat
+	mkdir /home/ubuntu/.hab/etc
 	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/cli.toml --output /home/ubuntu/.hab/etc/cli.toml
 	
 	# set ssl certificate
+	mkdir /home/ubuntu/.hab/cache/ssl
 	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/ssl_certificate.pem --output /home/ubuntu/.hab/cache/ssl/cert.pem
 	
 	# download public key from on-premise BLDR
@@ -85,7 +87,7 @@ setupHabitat() {
 	mkdir -p /home/ubuntu/Refresh
 	cd /home/ubuntu/Refresh/
 	
-	# hab studio(or plan builder) ready for use
+	echo "hab studio(or plan builder) ready for use :) \n"
 }
 
 setupPackageRefresh() {
