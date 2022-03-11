@@ -27,20 +27,32 @@ main() {
 	then
 		# install hab for linux
 		installHabitat "x86_64-linux"
+		exit 1
 	elif [[ $INSTALL == "linux2" ]];
 	then
 		# install hab for linux2
 		installHabitat "x86_64-linux-kernel2"
+		exit 1
+	else
+		# error
+		echo "unknown -i parameter value"
+		exit 99
 	fi
 
 	if [[ $SETUP == "habitat" ]];
 	then
 		# configure habitat
 		setupHabitat
+		exit 1
 	elif [[ $SETUP == "refresh" ]];
 	then
 		# configure package refresh
 		setupPackageRefresh
+		exit 1
+	else
+		# error
+		echo "unknown -s parameter value"
+		exit 99
 	fi
 }
 
