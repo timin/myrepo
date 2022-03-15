@@ -5,7 +5,6 @@ set -eou pipefail
 main() {
 	local INSTALL=""
 	local SETUP=""
-	local argc=$#
 
 	for a in "$@";
 	do
@@ -54,7 +53,7 @@ main() {
 		setupHabitat
 
 		# configure package refresh
-		setupPackageRefresh
+		setupPackageRefresh $INSTALL
 		printf ">*-()> habitat package refresh setup is finished :) \n"
 	fi
 }
@@ -96,13 +95,22 @@ setupHabitat() {
 }
 
 setupPackageRefresh() {
+	$type=$1
+
 	# set refresh conf
 	# copy conf files
 	#curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/refresh.conf --output /home/ubuntu/Refresh/conf/refresh.conf
 
-	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/linux2/packageForLinux2_essential.txt --output /home/ubuntu/Refresh/conf/packageForLinux2_essential.txt
-	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/linux2/packageForLinux2.txt --output /home/ubuntu/Refresh/conf/packageForLinux2.txt
-
+	if [[ $type == "linux" ]];
+	then
+		curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/linux/packageForLinux_essential.txt --output /home/ubuntu/Refresh/conf/packageForLinux_essential.txt
+		curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/linux/packageForLinux.txt --output /home/ubuntu/Refresh/conf/packageForLinux.txt
+	elif [[ $type == "linux2" ]];
+	then
+		curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/linux2/packageForLinux2_essential.txt --output /home/ubuntu/Refresh/conf/packageForLinux2_essential.txt
+		curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/linux2/packageForLinux2.txt --output /home/ubuntu/Refresh/conf/packageForLinux2.txt
+	fi
+	
 	# copy script files
 	#curl
 
