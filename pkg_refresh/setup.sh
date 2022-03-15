@@ -95,17 +95,17 @@ setupHabitat() {
 }
 
 setupPackageRefresh() {
-	local $type=$1
+	local tt=$1
 
 	# set refresh conf
 	# copy conf files
 	#curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/refresh.conf --output /home/ubuntu/Refresh/conf/refresh.conf
 
-	if [[ $type == "linux" ]];
+	if [[ $tt == "linux" ]];
 	then
 		curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/linux/packageForLinux_essential.txt --output /home/ubuntu/Refresh/conf/packageForLinux_essential.txt
 		curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/linux/packageForLinux.txt --output /home/ubuntu/Refresh/conf/packageForLinux.txt
-	elif [[ $type == "linux2" ]];
+	elif [[ $tt == "linux2" ]];
 	then
 		curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/linux2/packageForLinux2_essential.txt --output /home/ubuntu/Refresh/conf/packageForLinux2_essential.txt
 		curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/linux2/packageForLinux2.txt --output /home/ubuntu/Refresh/conf/packageForLinux2.txt
