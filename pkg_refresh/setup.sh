@@ -107,7 +107,7 @@ setupPackageRefresh() {
 	#curl
 
 	# clone package repo
-	git clone --branch $REFRESH_BRANCH git@github.com:habitat-sh/core-plans.git /home/ubuntu/Refresh/repo
+	git clone --branch $REFRESH_BRANCH https://github.com/habitat-sh/core-plans.git /home/ubuntu/Refresh/repo
 }
 
 main "$@" || exit 99
