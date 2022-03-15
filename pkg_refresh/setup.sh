@@ -95,7 +95,7 @@ setupHabitat() {
 }
 
 setupPackageRefresh() {
-	$type=$1
+	local $type=$1
 
 	# set refresh conf
 	# copy conf files
