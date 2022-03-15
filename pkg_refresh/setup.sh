@@ -54,7 +54,7 @@ main() {
 		setupHabitat
 
 		# configure package refresh
-		#setupPackageRefresh
+		setupPackageRefresh
 		printf ">*-()> habitat package refresh setup is finished :) \n"
 	fi
 }
@@ -98,12 +98,14 @@ setupHabitat() {
 setupPackageRefresh() {
 	# set refresh conf
 	# copy conf files
-	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/refresh.conf --output /home/ubuntu/Refresh/conf/refresh.conf
+	#curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/refresh.conf --output /home/ubuntu/Refresh/conf/refresh.conf
 
 	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/linux2/packageForLinux2_essential.txt --output /home/ubuntu/Refresh/conf/packageForLinux2_essential.txt
 	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/linux2/packageForLinux2.txt --output /home/ubuntu/Refresh/conf/packageForLinux2.txt
 
 	# copy script files
+	#curl
+
 	# clone package repo
 	git clone --branch $REFRESH_BRANCH git@github.com:habitat-sh/core-plans.git /home/ubuntu/Refresh/repo
 }
