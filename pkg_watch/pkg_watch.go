@@ -149,11 +149,16 @@ func getPackageData(list []string, dirpath string) {
 	}
 
 	// delete content of file
-	err = os.Remove(filename)
-	if(err != nil) {
-		log.Printf("ERR failed to delete content of [%s]; [%s]", filename, err)
-		return
+	_, err = os.Stat(filename)
+	if(err == nil) {
+		// file exists
+		err = os.Remove(filename)
+		if(err != nil) {
+			log.Printf("ERR failed to delete content of [%s]; [%s]", filename, err)
+			return
+		}
 	}
+
 
 	// write to file
 	err = ioutil.WriteFile(filename, jsonString, 0644)

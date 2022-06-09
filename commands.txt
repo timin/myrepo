@@ -64,3 +64,6 @@ curl -si https://api.habitat.sh/v1/rdeps/core/php?target=x86_64-linux-kernel2
 psql -h 127.0.0.1 builder -U hab -p 5433
 
 #curl -s https://api.habitat.sh/v1/rdeps/core/libtool | jq -r '.rdeps[]' | grep "core/\|^chef/"
+
+# How to get all packages(idents) in Builder channel
+curl -ks https://ec2-35-80-10-51.us-west-2.compute.amazonaws.com/bldr/v1/depot/channels/core/alpha/pkgs | jq -r '.data[] | .origin + "/" + .name + "/" + .version + "/" + .release'
