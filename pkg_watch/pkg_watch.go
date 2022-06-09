@@ -12,11 +12,13 @@ import (
     "io/ioutil"
 )
 
+var PKG_INVENTORY string = "pkginventory.txt"
+var PKG_METADATA string = "pkgmetadata.txt"
+
 func main() {
 
 	// process arguments
-	cmdPtr := flag.String("cmd", "inventory", "command/action to perform e.g. inventory,")
-	repoPtr := flag.String("repo", "./", "path of source code repositroy")
+	pathPtr := flag.String("path", "./", "path of source code repositroy")
 	targetPtr := flag.String("target", "linux", "platform e.g. linux, windows, all")
 
 	flag.Parse()
@@ -32,23 +34,44 @@ func main() {
 	*/
 
 	log.Println("INFO log start")
-	log.Printf("INFO command [%s] \n", *cmdPtr)
-	log.Printf("INFO path of repository [%s] \n", *repoPtr)
+	log.Printf("INFO path of repository [%s] \n", *pathPtr)
 	log.Printf("INFO platform target [%s] \n", *targetPtr)
 
-	if (strings.Compare(*cmdPtr, "inventory") == 0) {
-		// get list of planfiles from repo
-		var list, err = getPlanfileList(*repoPtr, *targetPtr)
-		if (err != nil) {
-			log.Printf("ERR unable to get planfiles [%s] \n", err)
-		}
-
-		// get parameter from planfile
-		getPackageData(list, *repoPtr)
-
-	} else {
-		log.Println("ERR invalid command")
+	// Build inventory of packages (get list of planfiles from directory)
+	var list, err = getPlanfileList(*pathPtr, *targetPtr)
+	if (err != nil) {
+		log.Printf("ERR unable to get planfiles [%s] \n", err)
 	}
+
+	// convert list of JSON
+	jsonString, err := json.Marshal(list)
+	if(err != nil) {
+		log.Printf("ERR failed to encode list to json; [%s]", err)
+		return
+	}
+
+	// delete content of file
+	_, err = os.Stat(PKG_INVENTORY)
+	if(err == nil) {
+		// file exists
+		err = os.Remove(PKG_INVENTORY)
+		if(err != nil) {
+			log.Printf("ERR failed to delete file [%s]; [%s]", PKG_INVENTORY, err)
+			return
+		}
+	}
+
+	// write planfile in text file
+        err = ioutil.WriteFile(PKG_INVENTORY, jsonString, 0644)
+        if(err != nil) {
+                log.Printf("ERR failed to write file [%s]; [%s]", PKG_INVENTORY, err)
+                return
+        }
+
+	log.Printf("INFO list of package; inventory file [%s]", PKG_INVENTORY)
+
+	// get parameter from planfile
+	getPackageData(list, *pathPtr)
 
 	log.Println("INFO log stop")
 }
@@ -92,7 +115,6 @@ func getPlanfileList(dirpath, target string) ([]string, error) {
 }
 
 func getPackageData(list []string, dirpath string) {
-	var filename string = "list_of_package.json"
 
 	type Package struct {
 		Planfile string `json:"planfile"`
@@ -149,25 +171,25 @@ func getPackageData(list []string, dirpath string) {
 	}
 
 	// delete content of file
-	_, err = os.Stat(filename)
+	_, err = os.Stat(PKG_METADATA)
 	if(err == nil) {
 		// file exists
-		err = os.Remove(filename)
+		err = os.Remove(PKG_METADATA)
 		if(err != nil) {
-			log.Printf("ERR failed to delete content of [%s]; [%s]", filename, err)
+			log.Printf("ERR failed to delete content of [%s]; [%s]", PKG_METADATA, err)
 			return
 		}
 	}
 
 
 	// write to file
-	err = ioutil.WriteFile(filename, jsonString, 0644)
+	err = ioutil.WriteFile(PKG_METADATA, jsonString, 0644)
 	if(err != nil) {
-		log.Printf("ERR failed to write content of [%s]; [%s]", filename, err)
+		log.Printf("ERR failed to write content of [%s]; [%s]", PKG_METADATA, err)
 		return
 	}
 
-	log.Printf("INFO created list of package; file[%s]", filename)
+	log.Printf("INFO created package information; file [%s]", PKG_METADATA)
 }
 
 func getConf(packagelist, versionlist string) {
