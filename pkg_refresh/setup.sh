@@ -94,11 +94,11 @@ setupHabitat() {
 	echo "source /home/ubuntu/Refresh/conf/refresh.rc" >> /home/ubuntu/.bashrc
 	source /home/ubuntu/Refresh/conf/refresh.rc
 	
-	# download private key from on-premise BLDR
-	hab origin key download core --secret > /dev/null
-
 	# download public key from on-premise BLDR
-	hab origin key download core > /dev/null
+	hab origin key download core
+
+	# download private key from on-premise BLDR
+	hab origin key download core --secret
 }
 
 setupPackageRefresh() {
