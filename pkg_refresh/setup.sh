@@ -51,7 +51,7 @@ main() {
 	then
 		# configure habitat
 		setupHabitat
-		printf "INFO: >*-()> habitat setup is finished :) \n"
+		printf "INFO: >*-()> habitat configuration is finished :) \n"
 		exit 0
 	fi
 
@@ -95,10 +95,10 @@ setupHabitat() {
 	source /home/ubuntu/Refresh/conf/refresh.rc
 	
 	# download private key from on-premise BLDR
-	hab origin key download core --secret
+	hab origin key download core --secret > /dev/null
 
 	# download public key from on-premise BLDR
-	hab origin key download core
+	hab origin key download core > /dev/null
 }
 
 setupPackageRefresh() {
