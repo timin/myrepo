@@ -1,24 +1,31 @@
 #!/bin/bash
 
+#Brief : This script is used to install habitat, configure habitat and configure Refresh environment
+
 set -eou pipefail
 
 main() {
 	local INSTALL=""
-	local SETUP=""
+	local SETUP_HAB=""
+	local SETUP_REFRESH=""
 
 	for a in "$@";
 	do
 		case $a in
+			-h=*|--habsetup=*)
+			SETUP_HAB="${a#*=}"
+			shift # past argument=value
+			;;
 			-i=*|--install=*)
 			INSTALL="${a#*=}"
 			shift # past argument=value
 			;;
-			-s=*|--setup=*)
-			SETUP="${a#*=}"
+			-r=*|--refreshsetup=*)
+			SETUP_REFRESH="${a#*=}"
 			shift # past argument=value
 			;;
 			-*|--*)
-			echo "Unknown option $a"
+			echo "ERR: Unknown option $a"
 			exit 1
 			;;
 			*)
@@ -26,35 +33,34 @@ main() {
 		esac
 	done
 
-	if [[ $INSTALL == "" ]];
-	then
-		# error
-		printf ">*-()> invalid -i parameter value \n"
-		exit 99
-	elif [[ $INSTALL == "linux" ]];
+	if [[ $INSTALL == "linux" ]];
 	then
 		# install hab for linux
 		installHabitat "x86_64-linux"
-		printf ">*-()> habitat for linux is installed \n"
+		printf "INFO: >*-()> habitat for linux is installed \n"
+		exit 0
 	elif [[ $INSTALL == "linux2" ]];
 	then
 		# install hab for linux2
 		installHabitat "x86_64-linux-kernel2"
-		printf ">*-()> habitat for linux2 is installed \n"
-	else
-		# error
-		printf ">*-()> invalid -i parameter value \n"
-		exit 99
+		printf "INFO: >*-()> habitat for linux2 is installed \n"
+		exit 0
 	fi
 
-	if [[ $SETUP == "y" ]];
+	if [[ $SETUP_HAB == "y" ]];
 	then
 		# configure habitat
 		setupHabitat
+		printf "INFO: >*-()> habitat setup is finished :) \n"
+		exit 0
+	fi
 
+	if [[ $SETUP_REFRESH == "y" ]];
+	then
 		# configure package refresh
 		setupPackageRefresh $INSTALL
-		printf ">*-()> habitat package refresh setup is finished :) \n"
+		printf "INFO: >*-()> habitat package refresh setup is finished :) \n"
+		exit 0
 	fi
 }
 
@@ -75,7 +81,8 @@ setupHabitat() {
 	mkdir -p /home/ubuntu/Refresh/conf /home/ubuntu/Refresh/script
 	
 	# configure habitat
-	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/cli.toml --output /home/ubuntu/Refresh/conf/cli.toml
+	mkdir -p /home/ubuntu/.hab/etc
+	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/cli.toml --output /home/ubuntu/.hab/etc/cli.toml
 	
 	# set ssl certificate
 	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/ssl_certificate.pem --output /home/ubuntu/Refresh/conf/ssl_certificate.pem
@@ -87,11 +94,11 @@ setupHabitat() {
 	echo "source /home/ubuntu/Refresh/conf/refresh.rc" >> /home/ubuntu/.bashrc
 	source /home/ubuntu/Refresh/conf/refresh.rc
 	
-	# download public key from on-premise BLDR
-	hab origin key download core
-	
 	# download private key from on-premise BLDR
 	hab origin key download core --secret
+
+	# download public key from on-premise BLDR
+	hab origin key download core
 }
 
 setupPackageRefresh() {
