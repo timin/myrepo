@@ -55,10 +55,10 @@ main() {
 		exit 0
 	fi
 
-	if [[ $SETUP_REFRESH == "y" ]];
+	if [[ $SETUP_REFRESH == "linux" || $SETUP_REFRESH == "linux2" ]];
 	then
 		# configure package refresh
-		setupPackageRefresh $INSTALL
+		setupPackageRefresh $SETUP_REFRESH
 		printf "INFO: >*-()> habitat package refresh setup is finished :) \n"
 		exit 0
 	fi
