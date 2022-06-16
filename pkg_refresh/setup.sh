@@ -6,16 +6,11 @@ set -eou pipefail
 
 main() {
 	local INSTALL=""
-	local SETUP_HAB=""
 	local SETUP_REFRESH=""
 
 	for a in "$@";
 	do
 		case $a in
-			-h=*|--habsetup=*)
-			SETUP_HAB="${a#*=}"
-			shift # past argument=value
-			;;
 			-i=*|--install=*)
 			INSTALL="${a#*=}"
 			shift # past argument=value
@@ -47,14 +42,6 @@ main() {
 		exit 0
 	fi
 
-	if [[ $SETUP_HAB == "y" ]];
-	then
-		# configure habitat
-		setupHabitat
-		printf "INFO: >*-()> habitat configuration is finished :) \n"
-		exit 0
-	fi
-
 	if [[ $SETUP_REFRESH == "linux" || $SETUP_REFRESH == "linux2" ]];
 	then
 		# configure package refresh
@@ -70,29 +57,10 @@ installHabitat() {
 
 	# set habitat license
 	hab license accept
-}
 
-setupHabitat() {
-	# update ubuntu packages
-	sudo apt -qq update
-	sudo apt -qq upgrade -y
-	
-	# create directory
-	mkdir -p /home/ubuntu/Refresh/conf /home/ubuntu/Refresh/script
-	
-	# configure habitat
+	# set/configure habitat conf file
 	mkdir -p /home/ubuntu/.hab/etc
 	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/cli.toml --output /home/ubuntu/.hab/etc/cli.toml
-	
-	# set ssl certificate
-	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/ssl_certificate.pem --output /home/ubuntu/Refresh/conf/ssl_certificate.pem
-	
-	# hab env variables
-	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/refresh.rc --output /home/ubuntu/Refresh/conf/refresh.rc
-	
-	# set env in bashrc
-	echo "source /home/ubuntu/Refresh/conf/refresh.rc" >> /home/ubuntu/.bashrc
-	source /home/ubuntu/Refresh/conf/refresh.rc
 	
 	# download public key from on-premise BLDR
 	hab origin key download core
@@ -104,10 +72,23 @@ setupHabitat() {
 setupPackageRefresh() {
 	local tt=$1
 
-	# set refresh conf
-	# copy conf files
-	#curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/refresh.conf --output /home/ubuntu/Refresh/conf/refresh.conf
-
+	# update ubuntu packages
+	sudo apt -qq update
+	sudo apt -qq upgrade -y
+	
+	# create directory
+	mkdir -p /home/ubuntu/Refresh/conf /home/ubuntu/Refresh/script
+	
+	# set ssl certificate
+	curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/ssl_certificate.pem --output /home/ubuntu/Refresh/conf/ssl_certificate.pem
+	
+	# hab env variables
+	curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/refresh.rc --output /home/ubuntu/Refresh/conf/refresh.rc
+	
+	# set env in bashrc
+	echo "source /home/ubuntu/Refresh/conf/refresh.rc" >> /home/ubuntu/.bashrc
+	source /home/ubuntu/Refresh/conf/refresh.rc
+	
 	if [[ $tt == "linux" ]];
 	then
 		curl https://raw.githubusercontent.com/timin/myrepo/main/pkg_refresh/conf/linux/packageForLinux_essential.txt --output /home/ubuntu/Refresh/conf/packageForLinux_essential.txt
