@@ -73,8 +73,8 @@ setupPackageRefresh() {
 	local tt=$1
 
 	# update ubuntu packages
-	sudo apt -qq update
-	sudo apt -qq upgrade -y
+	#sudo apt -qq update
+	#sudo apt -qq upgrade -y
 	
 	# create directory
 	mkdir -p /home/ubuntu/Refresh/conf /home/ubuntu/Refresh/script
