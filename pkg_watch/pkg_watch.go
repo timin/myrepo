@@ -10,10 +10,11 @@ import (
     "gopkg.in/ini.v1"
     "encoding/json"
     "io/ioutil"
+    "fmt"
 )
 
-var PKG_INVENTORY string = "pkginventory.txt"
-var PKG_METADATA string = "pkgmetadata.txt"
+var PKG_INVENTORY string = "inventory.txt"
+var PKG_METADATA string = "data.txt"
 
 func main() {
 
@@ -43,12 +44,7 @@ func main() {
 		log.Printf("ERR unable to get planfiles [%s] \n", err)
 	}
 
-	// convert list of JSON
-	jsonString, err := json.Marshal(list)
-	if(err != nil) {
-		log.Printf("ERR failed to encode list to json; [%s]", err)
-		return
-	}
+	strBuffer := strings.Trim(strings.Join(strings.Fields(fmt.Sprint(list)), "\n"), "[]")
 
 	// delete content of file
 	_, err = os.Stat(PKG_INVENTORY)
@@ -62,7 +58,7 @@ func main() {
 	}
 
 	// write planfile in text file
-        err = ioutil.WriteFile(PKG_INVENTORY, jsonString, 0644)
+        err = ioutil.WriteFile(PKG_INVENTORY, []byte(strBuffer), 0644)
         if(err != nil) {
                 log.Printf("ERR failed to write file [%s]; [%s]", PKG_INVENTORY, err)
                 return
@@ -100,7 +96,7 @@ func getPlanfileList(dirpath, target string) ([]string, error) {
 			if (info.IsDir() == false && r.MatchString(path) == true) {
 				// remove test planfiles
 				// exclude linux2 planfile if target is linux
-				if (target == "linux" && strings.Contains(path, "kernel2") == false) {
+				if (target == "linux" && strings.Contains(path, "kernel2") == false && strings.Contains(path, "/test") == false) {
 					var relativePath, _ = filepath.Rel(dirpath, path)
 					files = append(files, relativePath)
 				} else if (target == "windows" || target == "all") {
@@ -180,7 +176,6 @@ func getPackageData(list []string, dirpath string) {
 			return
 		}
 	}
-
 
 	// write to file
 	err = ioutil.WriteFile(PKG_METADATA, jsonString, 0644)
