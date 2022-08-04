@@ -1,12 +1,14 @@
 #!/bin/bash
 
+# Brief : script to fetch all packages in given builer channel
+# In : update PKG_ORIGIN and PKG_CHANNEL as per need
+
 PKG_ORIGIN="core"
 PKG_CHANNEL="refresh_xlib"
 
-
 INDEX_START=0
 INDEX_END=1
-FILE="channel_packages.txt"
+FILE="/tmp/channel_packages.txt"
 
 # delete file if present
 rm -f $FILE
@@ -25,3 +27,5 @@ do
 done
 
 echo "Total package fetched : $INDEX_END"
+cat $FILE
+rm -f $FILE
