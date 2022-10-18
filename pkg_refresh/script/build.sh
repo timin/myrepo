@@ -45,8 +45,12 @@ while IFS= read -r line; do
 		break
 	fi
 
-	log "[$plan] Built in [$(($end-$start))] seconds"	
+	#log "[$plan] Built in [$(($end-$start))] seconds"
+	log "[$plan] Built in [$(date -d@$(($end-$start)) -u +%Hh:%Mm:%Ss)]
+
 
 done < $PackageList
+
+log "That's all folks!"
 
 exit 1
