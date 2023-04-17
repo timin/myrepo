@@ -73,5 +73,4 @@ curl -ks https://ec2-35-80-10-51.us-west-2.compute.amazonaws.com/bldr/v1/depot/c
 # How to list ec2 instance with names filter
 aws --profile chef-engineering ec2 describe-instances --filters      "Name=tag:Name, Values=*timin*" --output json --query 'Reservations[*].         Instances[*].[PublicIpAddress,State.Name,InstanceId,Tags[?Key==`Name`].Value]'
 
-* install dependencies using command "sudo apt install cargo librust-openssl-dev -y"
 * go to base direcory and build using command "cargo build"
