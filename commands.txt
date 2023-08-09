@@ -30,6 +30,7 @@ https://bldr.habitat.sh/v1/depot/pkgs/core/gcc/9.3.0/20210826051400/channels
 
 # How to get name of all channels for an origin
 https://bldr.habitat.sh/v1/depot/channels/core
+curl https://bldr.habitat.sh/v1/depot/channels/core | jq -r '.[] | "\(.name)"'
 
 # How to get list of all packages in channel
 curl -s "https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs"
@@ -63,6 +64,7 @@ curl -si https://api.habitat.sh/v1/rdeps/core/php?target=x86_64-linux-kernel2
 # How to connect with Habitat database
 psql -h 127.0.0.1 builder -U hab -p 5433
 
+# How to get rdeps of package
 #curl -s https://api.habitat.sh/v1/rdeps/core/libtool | jq -r '.rdeps[]' | grep "core/\|^chef/"
 
 # How to get all packages(idents) in Builder channel
@@ -71,4 +73,4 @@ curl -ks https://ec2-35-80-10-51.us-west-2.compute.amazonaws.com/bldr/v1/depot/c
 # How to build hab-auto-build
 
 # How to list ec2 instance with names filter
-aws --profile chef-engineering ec2 describe-instances --filters "Name=tag:Name, Values=*timin*" --output json --query 'Reservations[*].Instances[*].[PublicIpAddress,State.Name,InstanceId,Tags[?Key==`Name`].Value]'y and build using command "cargo build"
+aws --profile chef-engineering ec2 describe-instances --filters "Name=tag:Name, Values=*timin*" --output json --query 'Reservations[*].Instances[*].[PublicIpAddress,State.Name,InstanceId,Tags[?Key==`Name`].Value]'
