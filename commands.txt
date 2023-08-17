@@ -35,8 +35,11 @@ curl https://bldr.habitat.sh/v1/depot/channels/core | jq -r '.[] | "\(.name)"'
 # How to get list of all packages in channel
 curl -s "https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs"
 
-# How to get list of packages in channel specific to a platform
-curl -s https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs/_latest?target=x86_64-linux-kernel2 | jq '.data[] | .name'
+# How to get list of latest packages in channel
+curl -s https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs/_latest
+
+# How to get list of latest packages in channel specific to a platform
+curl -s https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs/_latest?target=x86_64-linux | jq '.data[] | .origin + "/" + .name'
 
 # How to get latest version of package in particular channel
 https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs/gcc/latest
@@ -65,12 +68,12 @@ curl -si https://api.habitat.sh/v1/rdeps/core/php?target=x86_64-linux-kernel2
 psql -h 127.0.0.1 builder -U hab -p 5433
 
 # How to get rdeps of package
-#curl -s https://api.habitat.sh/v1/rdeps/core/libtool | jq -r '.rdeps[]' | grep "core/\|^chef/"
+#curl -s https://api.habitat.sh/v1/rdeps/core/libtool | jq -r '.rdeps[]' | grep "^(core/\|chef/\)"
 
 # How to get all packages(idents) in Builder channel
 curl -ks https://ec2-35-80-10-51.us-west-2.compute.amazonaws.com/bldr/v1/depot/channels/core/alpha/pkgs | jq -r '.data[] | .origin + "/" + .name + "/" + .version + "/" + .release'
 
-# How to build hab-auto-build
-
 # How to list ec2 instance with names filter
 aws --profile chef-engineering ec2 describe-instances --filters "Name=tag:Name, Values=*timin*" --output json --query 'Reservations[*].Instances[*].[PublicIpAddress,State.Name,InstanceId,Tags[?Key==`Name`].Value]'
+
+# How to build hab-auto-build
