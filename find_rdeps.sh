@@ -13,24 +13,6 @@ file_input="input"
 file_interim="interim"
 file_output="output"
 
-# get all dependents of package and save in file
-getDependents() {
-	# BLDR api to get all dependents
-	local ret=0
-	local out=$(curl -s https://api.habitat.sh/v1/rdeps/$1?target=x86_64-linux | jq -r '.rdeps[]' | grep "$filter")
-	if [ -z "$out" ]; then {
-		# out is empty
-		echo "ERR: [$1] no dependents found"
-		ret=1
-	}; else {
-		# write in file
-		printf "$out\n" >> $2
-		echo "INFO: [$1] dependents saved in file [$2]"
-	}; fi
-
-	return $ret
-}
-
 main() {
 	# delete existing file
 	$(rm -f $file_input)
@@ -74,4 +56,23 @@ main() {
 	done
 }
 
-main $1
+# get all dependents of package and save in file
+getDependents() {
+	# BLDR api to get all dependents
+	local ret=0
+	local out=$(curl -s https://api.habitat.sh/v1/rdeps/$1?target=x86_64-linux | jq -r '.rdeps[]' | grep "$filter")
+	if [ -z "$out" ]; then {
+		# out is empty
+		echo "ERR: [$1] no dependents found"
+		ret=1
+	}; else {
+		# write in file
+		printf "$out\n" >> $2
+		echo "INFO: [$1] dependents saved in file [$2]"
+	}; fi
+
+	return $ret
+}
+
+
+main $@ || exit 99
