@@ -1,12 +1,14 @@
 #!/bin/bash
 
 # A script to find dependents(rdeps) and transitive dependents(trdeps) of a habitat package.
-# output will be saved in file "allrdep"
+# output will be saved in file "output"
 
-# e.g. add package names to file "rdep" (inout file)
-# $ cat rdep
+# e.g. add package names to file "input" (input file)
+# $ cat input
 # core/openssl
 # core/cacerts
+
+#usage: get_rdeps.sh core/openssl
 
 filter="^core\/\|^habitat\/\|^chef\/"
 file_input="input"
@@ -27,12 +29,12 @@ main() {
 	loop=1
 
 	while [ $loop ]:; do
-		# read rdep file and get all dependents
+		# read input file and get all dependents
 		while IFS= read -r line; do
 			getDependents $line $file_interim
 		done < "$file_input"
 
-		echo "DBUG: Found level $loop rdep\n\n"
+		echo "DBUG: Got [level $loop] rdeps\n\n"
 
 		# if file is empty then break
 		if [ ! -s "$file_interim" ]; then #if [ -z "$(cat $file_interim)" ]
