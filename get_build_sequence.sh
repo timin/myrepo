@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# a script to generate build order based on build-order used in last refresh.
+# a script to generate build sequence based on build-order used in last refresh.
 # file_bo - file has build order which had worked in last refresh
 # file_input - file having jumbled set of packages needs to be arranged in order for build
 # file_output - resultant set of package order as per last Build Sequence
 
 file_bo="build_order"
-file_input="rdep"
-file_output="build_sequence"
+file_input="pkg_list"
+file_output="pkg_sequence"
 
 # delete already existing file
 $(rm -f $file_output)
