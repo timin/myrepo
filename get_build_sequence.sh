@@ -9,6 +9,10 @@ file_bo="build_order"
 file_input="pkg_list"
 file_output="pkg_sequence"
 
+# get build-order data from GitHub
+$(rm -f $file_bo)
+curl -s https://raw.githubusercontent.com/habitat-sh/habitat-coreplan-refresher/main/config/refresh_list.txt?token=GHSAT0AAAAAACD2GQRF7CZH7COAUFAL5F5SZHIWGVQ > $file_bo
+
 # delete already existing file
 $(rm -f $file_output)
 

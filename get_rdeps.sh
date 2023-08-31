@@ -16,13 +16,20 @@ file_interim="interim"
 file_output="output"
 
 main() {
-	# delete existing file
-	$(rm -f $file_input)
-	$(rm -f $file_output)
+	echo "args : $#\n"
+	if [ "$#" -gt 0 ];
+	then
+		# delete existing file
+		$(rm -f $file_input)
 
-	# save package name in input file
-	echo "$1"
-	echo "$1" > $file_input
+		# save package name in input file
+		echo "$1" > $file_input
+		echo "creating input file\n"
+	else
+		echo "using existing input file\n"
+	fi
+
+	$(rm -f $file_output)
 
 	# get all dependents of the package and save in file
 
@@ -38,10 +45,12 @@ main() {
 
 		# if file is empty then break
 		if [ ! -s "$file_interim" ]; then #if [ -z "$(cat $file_interim)" ]
+			# move input file to output file
+			$(cat $file_input | sort -u >> $file_output)
 			$(rm -f $file_input)
 			$(rm -f $file_interim)
 
-			echo "dependents packages are found in $file_output"
+			echo "dependents packages are found in file [$file_output]"
 			break
 		fi
 

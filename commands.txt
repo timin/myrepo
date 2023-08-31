@@ -78,3 +78,8 @@ curl -ks https://ec2-35-80-10-51.us-west-2.compute.amazonaws.com/bldr/v1/depot/c
 aws --profile chef-engineering ec2 describe-instances --filters "Name=tag:Name, Values=*timin*" --output json --query 'Reservations[*].Instances[*].[PublicIpAddress,State.Name,InstanceId,Tags[?Key==`Name`].Value]'
 
 # How to build hab-auto-build
+
+# How to install habitat binary
+curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo bash
+curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash -s -- -t x86_64-linux-kernel2
+curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo -E bash -s -- -c stable -v 1.6.706
