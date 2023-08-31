@@ -11,12 +11,18 @@
 #usage: get_rdeps.sh core/openssl
 
 filter="^core\/\|^habitat\/\|^chef\/"
+
 file_input="input"
 file_interim="interim"
 file_output="output"
 
+# possible values : linux, linux2, aarch, macos
+platform="linux2"
+
 main() {
-	echo "args : $#\n"
+	architecture=""
+
+	printf "args : $#\n"
 	if [ "$#" -gt 0 ];
 	then
 		# delete existing file
@@ -24,24 +30,51 @@ main() {
 
 		# save package name in input file
 		echo "$1" > $file_input
-		echo "creating input file\n"
+		printf "DBUG: creating input file\n"
 	else
-		echo "using existing input file\n"
+		printf "DBUG: using existing input file\n"
 	fi
 
+	# delete output file if exists
 	$(rm -f $file_output)
 
 	# get all dependents of the package and save in file
 
 	loop=1
 
-	while [ $loop ]:; do
+	# get platform name
+	case "$platform" in
+	'linux')
+		architecture="x86_64-linux"
+		;;
+	'linux2')
+		architecture="x86_64-linux-kernel2"
+		;;
+	'aarch')
+		architecture="aarch64"
+		;;
+	*)
+		architecture="linux"
+		;;
+	esac
+
+	printf "DBUG: getting runtime rdep for [$architecture] platform\n"
+
+	while [ $loop ]:;
+	do
 		# read input file and get all dependents
-		while IFS= read -r line; do
-			getDependents $line $file_interim
+		while IFS= read -r line;
+		do
+			getDependents $line $architecture $file_interim
+			ret=$?
+			if [ $ret -eq 0 ];then
+				printf "DBUG: [$line] fetched rdeps\n"
+			else
+				printf "ERR: [$line] unable to fetch rdeps; ret[$ret]\n"
+			fi
 		done < "$file_input"
 
-		echo "DBUG: Got [level $loop] rdeps\n\n"
+		printf "DBUG: got [level $loop] rdeps\n\n"
 
 		# if file is empty then break
 		if [ ! -s "$file_interim" ]; then #if [ -z "$(cat $file_interim)" ]
@@ -50,7 +83,7 @@ main() {
 			$(rm -f $file_input)
 			$(rm -f $file_interim)
 
-			echo "dependents packages are found in file [$file_output]"
+			printf "INFO: runtime dependents can be found in file [$file_output]\n"
 			break
 		fi
 
@@ -69,18 +102,19 @@ main() {
 
 # get all dependents of package and save in file
 getDependents() {
-	# BLDR api to get all dependents
-	local ret=0
-	local out=$(curl -s https://api.habitat.sh/v1/rdeps/$1?target=x86_64-linux | jq -r '.rdeps[]' | grep "$filter")
+	# builder api to get all dependents
+	local ret=1
+	local out=$(curl -s https://api.habitat.sh/v1/rdeps/$1?target=$2 | jq -r '.rdeps[]' | grep "$filter")
 	if [ -z "$out" ]; then {
 		# out is empty
-		echo "ERR: [$1] no dependents found"
+		#printf "WARN: [$1] oops! no dependents\n"
 		ret=1
-	}; else {
+	} else {
 		# write in file
-		printf "$out\n" >> $2
-		echo "INFO: [$1] dependents saved in file [$2]"
-	}; fi
+		echo "$out" >> $3
+		#printf "INFO: [$1] dependents saved in file [$3]\n"
+		ret=0
+	} fi
 
 	return $ret
 }
