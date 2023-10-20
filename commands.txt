@@ -83,3 +83,6 @@ aws --profile chef-engineering ec2 describe-instances --filters "Name=tag:Name, 
 curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo bash
 curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash -s -- -t x86_64-linux-kernel2
 curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo -E bash -s -- -c stable -v 1.6.706
+
+# how to get all rdeps (build and run time) of package of list of packages
+hab-auto-build analyze --rdeps --build-rdeps core/bash core/glibc

@@ -2,12 +2,18 @@
 
 # a script to generate build sequence based on build-order used in last refresh.
 # file_bo - file has build order which had worked in last refresh
-# file_input - file having jumbled set of packages needs to be arranged in order for build
-# file_output - resultant set of package order as per last Build Sequence
+# file_input - file having list of packages needs to be arranged in sequence based in dependency tree
+# file_output - file having sequence of packages as per dependency tree for build/refresh
 
 file_bo="build_order"
 file_input="pkg_list"
 file_output="pkg_sequence"
+
+echo "args : $#\n"
+if [ "$#" -eq 1 ];
+then
+	file_input=$1
+fi
 
 # get build-order data from GitHub
 $(rm -f $file_bo)
