@@ -44,6 +44,8 @@ curl -s https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs/_lates
 
 # How to get latest version of package in particular channel
 https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs/gcc/latest
+curl https://bldr.habitat.sh/v1/depot/channels/chef/stable/pkgs/chef-infra-client/latest?target=x86_64-linux | jq
+
 
 # How to get all repositories names in GitHub organisation
 curl -su timin "https://api.github.com/orgs/chef-base-plans/repos?type=all&sort=full_name&per_page=100&page=1" | jq -r '.[] | "\(.name)"'
