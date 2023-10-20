@@ -1,0 +1,18 @@
+export REFRESH_BRANCH="main"
+#export SSL_CERT_FILE="/home/ubuntu/Refresh/conf/ssl_certificate.pem"
+
+#export HAB_BLDR_URL="https://ec2-35-80-10-51.us-west-2.compute.amazonaws.com/bldr/v1/"
+export HAB_AUTH_TOKEN="_Qk9YLTEKYmxkci0yMDE3MDkyNzAyMzcxNApibGRyLTIwMTcwOTI3MDIzNzE0Cm0wanhRRjFwaUxiekdmaUt3L1RYdG1UVFpNOFh2Q3ExClkxSkkrWEJ3Zml2cjB2eitXNVdVNmd0VVVRemg2alJoRXlLd0NOV1RuaXBuNTdXeQ=="
+
+export HAB_ORIGIN="core"
+export HAB_NOCOLORING="true"
+export HAB_NONINTERACTIVE="true"
+export HAB_FEAT_IGNORE_LOCAL="true"
+export HAB_STUDIO_SECRET_HAB_FEAT_IGNORE_LOCAL="true"
+
+export DO_CHECK=true
+
+export HAB_BLDR_CHANNEL="refresh_php"
+export HAB_FALLBACK_CHANNEL="stable"
+export HAB_STUDIO_SECRET_HAB_BLDR_CHANNEL="refresh_php"
+export HAB_STUDIO_SECRET_HAB_FALLBACK_CHANNEL="stable"
