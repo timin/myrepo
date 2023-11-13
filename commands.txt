@@ -88,3 +88,6 @@ curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/in
 
 # how to get all rdeps (build and run time) of package of list of packages
 hab-auto-build analyze --rdeps --build-rdeps core/bash core/glibc
+
+# how to download self-signed ssl certificate (not CA trusted certificate)
+openssl s_client -connect server:443 <<<'' | openssl x509 -out /path/file
