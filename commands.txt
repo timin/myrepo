@@ -90,4 +90,7 @@ curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/in
 hab-auto-build analyze --rdeps --build-rdeps core/bash core/glibc
 
 # how to download self-signed ssl certificate (not CA trusted certificate)
-openssl s_client -connect server:443 <<<'' | openssl x509 -out /path/file
+openssl s_client -connect <server>:443 <<<'' | openssl x509 -out <path_to_file>
+
+# verify ssl certificate data
+openssl x509 -inform PEM -in <path_to_certificate> -text -out <filename>
