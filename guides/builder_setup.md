@@ -3,27 +3,32 @@
 Habitat Builder can be installed using Chef Automate. It is also used for authentication while using Builder. To install Automate follow below steps.
  
 1. Create AWS instance with minimum (8 CPU, 32GB of RAM, 100 GB of disk)
-2. Create a directory using command "mkdir /home/ubuntu/Automate"
-3. Switch to newly created directory "cd /home/ubuntu/Automate"
-4. Update Linux package index using command "sudo apt update"
-5. Update Linux package using command "sudo apt upgrade"
-6. Generate a SSL certificate using command "openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ssl_key.pem -out ssl_certificate.pem -subj "/C=US/ST=Oregon/L=Portland/O=Company/OU=Dept/CN=<public_dns_of_machine>""
-7. Update kernel parameters for better performance:
+2. Assign elastic IP to Ec2 instance
+3. Create a directory using command "mkdir /home/ubuntu/Automate"
+4. Switch to newly created directory "cd /home/ubuntu/Automate"
+5. Update Linux package index using command "sudo apt update"
+6. Update Linux package using command "sudo apt upgrade"
+7. Generate a SSL certificate using command "openssl req -x509 -noenc -days 365 -newkey rsa:2048 -keyout ssl_key.pem -out ssl_certificate.pem -subj "/C=US/ST=Oregon/L=Portland/O=Company/OU=Dept/CN=<public_dns_of_machine>""
+8. Update kernel parameters for better performance:
 
     "sudo sysctl -w vm.max_map_count=655300"
 
     "sudo sysctl -w vm.dirty_expire_centisecs=30000"
 
+    "echo "vm.max_map_count=655300" | sudo tee -a /etc/sysctl.conf"
+
+    "echo "vm.dirty_expire_centisecs=30000" | sudo tee -a /etc/sysctl.conf"
+
     "sudo sysctl -p"
-7. Install Chef Automate using command "curl https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip | gunzip - > chef-automate && chmod +x chef-automate"
-8. Initialize Automate configuration file using command "sudo ./chef-automate init-config --fqdn <public_dns_of_machine> --certificate /home/ubuntu/Automate/ssl_certificate.pem --private-key /home/ubuntu/Automate/ssl_key.pem"
-9. File named "config.toml" will be generated in current directory with default configuration, if required you can add/edit/update (DEFAULT IS GOOD ENOUGH)
-10. Deploy Automate using command "sudo ./chef-automate deploy --accept-terms-and-mlsa --product automate,builder config.toml"
-11. Copy Automate license file to path "curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/automate_license --output automate_license"
-12. Apply Automate license using command "sudo ./chef-automate license apply automate_license"
-13. Check status of Automate services using command "sudo ./chef-automate status"
-14. Get Automate access and login details using command "sudo cat automate-credentials.toml"
-15. Chef Automate is ready to use.
+9. Install Chef Automate using command "curl https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip | gunzip - > chef-automate && chmod +x chef-automate"
+10. Initialize Automate configuration file using command "sudo ./chef-automate init-config --fqdn <public_dns_of_machine> --certificate /home/ubuntu/Automate/ssl_certificate.pem --private-key /home/ubuntu/Automate/ssl_key.pem"
+11. File named "config.toml" will be generated in current directory with default configuration, if required you can add/edit/update (DEFAULT IS GOOD ENOUGH)
+12. Deploy Automate using command "sudo ./chef-automate deploy --accept-terms-and-mlsa --product automate,builder config.toml"
+13. Copy Automate license file to path "curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/automate_license --output automate_license"
+14. Apply Automate license using command "sudo ./chef-automate license apply automate_license"
+15. Check status of Automate services using command "sudo ./chef-automate status"
+16. Get Automate access and login details using command "sudo cat automate-credentials.toml"
+17. Chef Automate is ready to use.
 
 **To install Builder**
 
