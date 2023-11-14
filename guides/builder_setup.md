@@ -27,12 +27,15 @@ Habitat Builder can be installed using Chef Automate. It is also used for authen
 13. Copy Automate license file to path "curl https://raw.githubusercontent.com/timin/myutil/main/pkg_refresh/conf/automate_license --output automate_license"
 14. Apply Automate license using command "sudo ./chef-automate license apply automate_license"
 15. Copy SSL certificate to path "~/.hab/cache/ssl" and "/hab/cache/ssl"
+    
      "cp ssl_certificate.pem ~/.hab/cache/ssl"
 
+     "mkdir ~/.hab/cache/ssl"
+
      "sudo cp ssl_certificate.pem /hab/cache/ssl/"
-15. Check status of Automate services using command "sudo ./chef-automate status"
-16. Get Automate access and login details using command "sudo cat automate-credentials.toml"
-17. Chef Automate is ready to use.
+17. Check status of Automate services using command "sudo ./chef-automate status"
+18. Get Automate access and login details using command "sudo cat automate-credentials.toml"
+19. Chef Automate is ready to use.
 
 **To install Builder**
 
