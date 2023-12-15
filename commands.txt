@@ -83,3 +83,20 @@ aws --profile chef-engineering ec2 describe-instances --filters "Name=tag:Name, 
 curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo bash
 curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash -s -- -t x86_64-linux-kernel2
 curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo -E bash -s -- -c stable -v 1.6.706
+
+# login aws portal
+aws sso login --sso-session chefsso
+
+# start aws ec2 instance
+aws ec2 start-instances --instance-ids i-xxx
+
+# stop aws ec2 instance
+aws ec2 stop-instances --instance-ids i-xxx
+
+# list all ec2 instances in region
+aws ec2 describe-instances | jq '.Reservations[].Instances[] | .InstanceId + "|" + .KeyName + "|" + .PublicIpAddress + "|" + .State.Name'
+
+# list all ec2 instances with key-name
+aws ec2 describe-instances --filters "Name=key-name,Values=timin_ed25519" | jq '.Reservations[].Instances[] | .InstanceId + "|" + .KeyName + "|" + .PublicIpAddress + "|" + .State.Name'
+aws ec2 describe-instances --filters file://aws_filter.json | jq '.Reservations[].Instances[] | .InstanceId + "|" + .KeyName + "|" + .PublicIpAddress + "|" + .State.Name'
+
