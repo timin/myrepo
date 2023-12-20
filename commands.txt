@@ -74,8 +74,8 @@ psql -h 127.0.0.1 builder -U hab -p 5433
 # How to get all packages(idents) in Builder channel
 curl -ks https://ec2-35-80-10-51.us-west-2.compute.amazonaws.com/bldr/v1/depot/channels/core/alpha/pkgs | jq -r '.data[] | .origin + "/" + .name + "/" + .version + "/" + .release'
 
-# How to list ec2 instance with names filter
-aws --profile chef-engineering ec2 describe-instances --filters "Name=tag:Name, Values=*timin*" --output json --query 'Reservations[*].Instances[*].[PublicIpAddress,State.Name,InstanceId,Tags[?Key==`Name`].Value]'
+# find cve based on cpe name
+curl https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:haxx:libcurl:7.79.0 | jq '.vulnerabilities[] | .cve.id'
 
 # How to build hab-auto-build
 
@@ -92,6 +92,9 @@ aws ec2 start-instances --instance-ids i-xxx
 
 # stop aws ec2 instance
 aws ec2 stop-instances --instance-ids i-xxx
+
+# How to list ec2 instance with names filter
+aws --profile chef-engineering ec2 describe-instances --filters "Name=tag:Name, Values=*timin*" --output json --query 'Reservations[*].Instances[*].[PublicIpAddress,State.Name,InstanceId,Tags[?Key==`Name`].Value]'
 
 # list all ec2 instances in region
 aws ec2 describe-instances | jq '.Reservations[].Instances[] | .InstanceId + "|" + .KeyName + "|" + .PublicIpAddress + "|" + .State.Name'
