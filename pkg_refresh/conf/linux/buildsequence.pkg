@@ -625,7 +625,6 @@ p11-kit
 libwebp
 gnutls
 mariadb
-
 dri2proto
 dovecot
 dotnet-asp-core
