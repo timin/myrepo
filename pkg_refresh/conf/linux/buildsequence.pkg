@@ -590,7 +590,7 @@ netdata
 msgpack
 mongodb
 lzop
-lsyncd SKIP
+lsyncd
 linux
 libyajl2
 recordproto
@@ -660,12 +660,12 @@ psscriptanalyzer
 prometheus-cpp
 pester
 percona-xtrabackup
-opam SKIP
+opam
 msodbcsql17
 meson
 libdrm
 glib
-atk SKIP
+atk
 at-spi2-core
 omniORB
 mc
@@ -701,7 +701,7 @@ libxext
 libsm
 cairo
 c-ares
-at-spi2-atk SKIP
+at-spi2-atk
 ghc86
 cabal-install
 alex
@@ -726,7 +726,7 @@ avisynthplus
 ffmpeg
 ffmpeg3
 ffmpeg4
-drush SKIP
+drush
 libxrender
 libxi
 clang-tools-extra
@@ -762,9 +762,9 @@ kafka
 kafka0
 jetty
 jenkins
-gtk2 SKIP
+gtk2
 libepoxy
-gtk SKIP
+gtk
 gradle5
 gradle4
 gradle
@@ -810,8 +810,8 @@ grpcurl
 envoy
 shield-agent
 rethinkdb
-cockroach SKIP
-drupal SKIP
+cockroach
+drupal
 shield
 xmlsec1
 kafka2
