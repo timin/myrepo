@@ -434,7 +434,6 @@ hwloc
 hugo
 htop
 icu
-haproxy21
 haproxy20
 haproxy18
 haproxy
@@ -626,7 +625,6 @@ p11-kit
 libwebp
 gnutls
 mariadb
-elixir
 dri2proto
 dovecot
 dotnet-asp-core
@@ -819,6 +817,7 @@ kafka2
 erlang22
 erlang24
 erlang25
+elixir
 coredns
 btrfs-progs
 buildah
