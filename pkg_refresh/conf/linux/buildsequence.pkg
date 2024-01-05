@@ -434,7 +434,6 @@ hwloc
 hugo
 htop
 icu
-haproxy21
 haproxy20
 haproxy18
 haproxy
@@ -591,7 +590,7 @@ netdata
 msgpack
 mongodb
 lzop
-lsyncd
+lsyncd SKIP
 linux
 libyajl2
 recordproto
@@ -626,7 +625,7 @@ p11-kit
 libwebp
 gnutls
 mariadb
-elixir
+
 dri2proto
 dovecot
 dotnet-asp-core
@@ -661,12 +660,12 @@ psscriptanalyzer
 prometheus-cpp
 pester
 percona-xtrabackup
-opam
+opam SKIP
 msodbcsql17
 meson
 libdrm
 glib
-atk
+atk SKIP
 at-spi2-core
 omniORB
 mc
@@ -702,7 +701,7 @@ libxext
 libsm
 cairo
 c-ares
-at-spi2-atk
+at-spi2-atk SKIP
 ghc86
 cabal-install
 alex
@@ -727,7 +726,7 @@ avisynthplus
 ffmpeg
 ffmpeg3
 ffmpeg4
-drush
+drush SKIP
 libxrender
 libxi
 clang-tools-extra
@@ -763,9 +762,9 @@ kafka
 kafka0
 jetty
 jenkins
-gtk2
+gtk2 SKIP
 libepoxy
-gtk
+gtk SKIP
 gradle5
 gradle4
 gradle
@@ -811,14 +810,15 @@ grpcurl
 envoy
 shield-agent
 rethinkdb
-cockroach
-drupal
+cockroach SKIP
+drupal SKIP
 shield
 xmlsec1
 kafka2
 erlang22
 erlang24
 erlang25
+elixir
 coredns
 btrfs-progs
 buildah
