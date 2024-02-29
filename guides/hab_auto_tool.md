@@ -27,3 +27,8 @@
   Note: Update Rust version in native and bootstrap packages
 
   Note: update Habitat version
+
+### To enable debugging in hab-auto-build binary
+export HAB_AUTO_BUILD_DEBUG=hab_auto_build=debug
+
+export HAB_AUTO_BUILD_DEBUG=hab_auto_build=trace
