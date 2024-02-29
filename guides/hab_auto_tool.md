@@ -13,17 +13,17 @@
 * Delete artifacts directory '/hab/cache/artifacts/*' and '~/.hab/cache/artifacts/*'
 * Set up Docker
 
-  Note : Follow steps on page https://docs.docker.com/engine/install/ubuntu/
+  Note: Follow steps on page https://docs.docker.com/engine/install/ubuntu/
 
-  Note : Follow post installation steps on page https://docs.docker.com/engine/install/linux-postinstall/
+  Note: Follow post installation steps on page https://docs.docker.com/engine/install/linux-postinstall/
 * Set up hab-auto-build tool using 'sudo make setup'
 
-  Note : Install all requites for building core-packages
+  Note: Install all requites for building core-packages
 * Update environment using 'sudo make update'
 * Build packages using 'sudo make build-debug PACKAGE="core/hab-sup"' or 'HAB_AUTO_BUILD_DEBUG=hab-auto-build=debug sudo -E $(which hab-auto-build) build core/hab-sup'
 
-  Note : studio created by hab-auto-build tool is named '/hab/studios/hab-auto-build-1'
+  Note: studio created by hab-auto-build tool is named '/hab/studios/hab-auto-build-1'
 
-  Note : Update Rust version in native and bootstrap packages
+  Note: Update Rust version in native and bootstrap packages
 
-  Note : update Habitat version
+  Note: update Habitat version
