@@ -74,6 +74,9 @@ psql -h 127.0.0.1 builder -U hab -p 5433
 # How to get all packages(idents) in Builder channel
 curl -ks https://ec2-35-80-10-51.us-west-2.compute.amazonaws.com/bldr/v1/depot/channels/core/alpha/pkgs | jq -r '.data[] | .origin + "/" + .name + "/" + .version + "/" + .release'
 
+#search cve details based in cveId
+curl -s https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2021-23358.json
+
 # find cve based on cpe name
 curl https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:haxx:libcurl:7.79.0 | jq '.vulnerabilities[] | .cve.id'
 
@@ -94,7 +97,7 @@ aws ec2 start-instances --instance-ids i-xxx
 aws ec2 stop-instances --instance-ids i-xxx
 
 # How to list ec2 instance with names filter
-aws --profile chef-engineering ec2 describe-instances --filters "Name=tag:Name, Values=*timin*" --output json --query 'Reservations[*].Instances[*].[PublicIpAddress,State.Name,InstanceId,Tags[?Key==`Name`].Value]'
+aws --profile chef-engineering ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name, Values=*timin*" --output json --query 'Reservations[*].Instances[*].[PublicIpAddress,State.Name,InstanceId,Tags[?Key==`Name`].Value]'
 
 # list all ec2 instances in region
 aws ec2 describe-instances | jq '.Reservations[].Instances[] | .InstanceId + "|" + .KeyName + "|" + .PublicIpAddress + "|" + .State.Name'
@@ -103,3 +106,5 @@ aws ec2 describe-instances | jq '.Reservations[].Instances[] | .InstanceId + "|"
 aws ec2 describe-instances --filters "Name=key-name,Values=timin_ed25519" | jq '.Reservations[].Instances[] | .InstanceId + "|" + .KeyName + "|" + .PublicIpAddress + "|" + .State.Name'
 aws ec2 describe-instances --filters file://aws_filter.json | jq '.Reservations[].Instances[] | .InstanceId + "|" + .KeyName + "|" + .PublicIpAddress + "|" + .State.Name'
 
+# list all ec2 isntance running
+aws ec2 describe-instances --filters "Name=key-name,Values=timin_ed25519" --query 'Reservations[*].Instances[*].[InstanceId,KeyName,State.Name,PublicIpAddress,Tags[?Key==\`Name\`].Value]' --output=yaml
