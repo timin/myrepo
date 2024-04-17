@@ -9,6 +9,8 @@
 * Install Docker using link https://docs.docker.com/engine/install/ubuntu/
 * Configure Docker using link https://docs.docker.com/engine/install/linux-postinstall/
 * Setup hab-auto-tool using "make setup"
+* Add path to bashrc using ". "$HOME/.cargo/env""
+* Restart terminal/machine
 * Build packages using "make build"
 
 ======== OLD INSTRUCTIONS ==========
