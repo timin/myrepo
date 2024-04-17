@@ -11,6 +11,8 @@
 * Setup hab-auto-tool using "make setup"
 * Add path to bashrc using ". "$HOME/.cargo/env""
 * Restart terminal/machine
+* Install Habitat using "curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo bash"
+* Setup hab for root user "sudo hab cli setup"
 * Build packages using "make build"
 
 ======== OLD INSTRUCTIONS ==========
