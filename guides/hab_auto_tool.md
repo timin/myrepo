@@ -13,6 +13,8 @@
 * Restart terminal/machine
 * Install Habitat using "curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo bash"
 * Setup hab for root user "sudo hab cli setup"
+* Download core orign keys using "hab origin key download -s core"
+* Copy core origin keys using "sudo cp ~/.hab/cache/keys/core-20180119235000.sig.key /hab/cache/keys/"
 * Build packages using "make build"
 
 ======== OLD INSTRUCTIONS ==========
