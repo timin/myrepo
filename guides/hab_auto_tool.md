@@ -1,6 +1,18 @@
 ### How to set up hab-auto-build on new machine
 ### How to build core-packages on new machine
 
+* Create EC2 machine for x86_64/aarch64
+* Update apt package manager index using "sudo apt update"
+* Install requites using "sudo apt install -y make cargo openssl libssl-dev"
+* Checkout core-packages repo using "git clone git@github.com:habitat-sh/core-packages.git"
+* Setup hab-auto tool using "make setup" ***This will fail with error 'Docker not installed/found'***
+* Install Docker using link https://docs.docker.com/engine/install/ubuntu/
+* Configure Docker using link https://docs.docker.com/engine/install/linux-postinstall/
+* Setup hab-auto-tool using "make setup"
+* Build packages using "make build"
+
+======== OLD INSTRUCTIONS ==========
+
 **Note: Habitat and hab-auto-build tool needs superuser priviliges. Run as sudo**
 
 * Create EC2 machine for x86/aarch64
