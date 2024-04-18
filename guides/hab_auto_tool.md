@@ -19,22 +19,23 @@
 
 > [!CAUTION]
 Never run/use/open Hab Studio on build machine. It will create conflicts with currently used and latest build hab packages and will throw error like
+```
+Building [native] core/build-tools-hab-studio/**DYNAMIC** (x86_64-linux)
+Build Success [native] core-build-tools-hab-studio-1.6.639-20240417110922-x86_64-linux.hart
+     Building [bootstrap] core/linux-headers/5.19.8 (x86_64-linux)
+Error:
+   0: Failed to complete build
+   1: Failed due to an unexpected build error
+   2: Failed to create source cache folder at '/hab/studios/hab-auto-build-1/hab/cache/src'
+   3: Permission denied (os error 13)
 
->Building [native] core/build-tools-hab-studio/**DYNAMIC** (x86_64-linux)
->Build Success [native] core-build-tools-hab-studio-1.6.639-20240417110922-x86_64-linux.hart
->     Building [bootstrap] core/linux-headers/5.19.8 (x86_64-linux)
->Error:
->   0: Failed to complete build
->   1: Failed due to an unexpected build error
->   2: Failed to create source cache folder at '/hab/studios/hab-auto-build-1/hab/cache/src'
->   3: Permission denied (os error 13)
->
->
->Backtrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.
->Run with RUST_BACKTRACE=full to include source snippets.
->make: *** [Makefile:53: build] Error 1
 
-To mitigate above error, delete hab artifacts (hab-backline, hab-studio, hab-plan-build etc) from root and local cache. Also delete from "/hab/pkgs/"
+Backtrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.
+Run with RUST_BACKTRACE=full to include source snippets.
+make: *** [Makefile:53: build] Error 1
+```
+
+> ${\color{blue}NOTE:}$ To mitigate above error, delete hab artifacts (hab-backline, hab-studio, hab-plan-build etc) from root and local cache. Also delete from "/hab/pkgs/"
 
 
 ======== OLD INSTRUCTIONS ==========
