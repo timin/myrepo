@@ -2,20 +2,40 @@
 ### How to build core-packages on new machine
 
 * Create EC2 machine for x86_64/aarch64
-* Update apt package manager index using "sudo apt update"
-* Install requites using "sudo apt install -y make cargo openssl libssl-dev"
-* Checkout core-packages repo using "git clone git@github.com:habitat-sh/core-packages.git"
-* Setup hab-auto tool using "make setup" ***This will fail with error 'Docker not installed/found'***
+* Update apt package manager index using `sudo apt update`
+* Install requites using `sudo apt install -y make cargo openssl libssl-dev`
+* Checkout core-packages repo using `git clone git@github.com:habitat-sh/core-packages.git`
+* Setup hab-auto tool using `make setup` ***This will fail with error 'Docker not installed/found'***
 * Install Docker using link https://docs.docker.com/engine/install/ubuntu/
 * Configure Docker using link https://docs.docker.com/engine/install/linux-postinstall/
-* Setup hab-auto-tool using "make setup"
-* Add path to bashrc using ". "$HOME/.cargo/env""
+* Setup hab-auto-tool using `make setup`
+* Add path to bashrc using `. "$HOME/.cargo/env"`
 * Restart terminal/machine
-* Install Habitat using "curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo bash"
-* Setup hab for root user "sudo hab cli setup"
-* Download core orign keys using "hab origin key download -s core"
-* Copy core origin keys using "sudo cp ~/.hab/cache/keys/core-20180119235000.sig.key /hab/cache/keys/"
-* Build packages using "make build"
+* Install Habitat using `curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo bash`
+* Setup hab for root user `sudo hab cli setup`
+* Download core orign keys using `hab origin key download -s core`
+* Copy core origin keys using `sudo cp ~/.hab/cache/keys/core-20180119235000.sig.key /hab/cache/keys/`
+* Build packages using `make build`
+
+> [!CAUTION]
+Never run/use/open Hab Studio on build machine. It will create conflicts with currently used and latest build hab packages and will throw error like
+
+>Building [native] core/build-tools-hab-studio/**DYNAMIC** (x86_64-linux)
+>Build Success [native] core-build-tools-hab-studio-1.6.639-20240417110922-x86_64-linux.hart
+>     Building [bootstrap] core/linux-headers/5.19.8 (x86_64-linux)
+>Error:
+>   0: Failed to complete build
+>   1: Failed due to an unexpected build error
+>   2: Failed to create source cache folder at '/hab/studios/hab-auto-build-1/hab/cache/src'
+>   3: Permission denied (os error 13)
+>
+>
+>Backtrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.
+>Run with RUST_BACKTRACE=full to include source snippets.
+>make: *** [Makefile:53: build] Error 1
+
+To mitigate above error, delete hab artifacts (hab-backline, hab-studio, hab-plan-build etc) from root and local cache. Also delete from "/hab/pkgs/"
+
 
 ======== OLD INSTRUCTIONS ==========
 
