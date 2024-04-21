@@ -8,14 +8,14 @@
 * Setup hab-auto tool using `make setup` ***This will fail with error 'Docker not installed/found'***
 * Install Docker using link https://docs.docker.com/engine/install/ubuntu/
 * Configure Docker using link https://docs.docker.com/engine/install/linux-postinstall/
-* Setup hab-auto-tool using `make setup`
-* Add path to bashrc using `. "$HOME/.cargo/env"`
-* Restart terminal/machine
 * Install Habitat using `curl https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.sh | sudo bash`
 * Setup hab for root user `sudo hab cli setup`
-* Download core orign keys using `hab origin key download -s core`
-* Copy core origin keys using `sudo cp ~/.hab/cache/keys/core-20180119235000.sig.key /hab/cache/keys/`
-* Build packages using `make build`
+* Download core orign keys using `sudo hab origin key download -s core`
+* Setup hab-auto-tool using `make setup`
+* Update hab-auto-tool using `make update`
+* Add path to bashrc using `. "$HOME/.cargo/env"`
+* Restart terminal/machine
+* Build packages using `make build` or `sudo -E $(which hab-auto-build) build core/*`
 
 > [!CAUTION]
 Never run/use/open Hab Studio on build machine. It will create conflicts with currently used and latest build hab packages and will throw error like
