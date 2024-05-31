@@ -102,9 +102,8 @@ Ref : https://stackoverflow.com/questions/46731433/how-to-download-and-install-g
 Ref : https://cloudinfrastructureservices.co.uk/how-to-setup-docker-engine-containers-on-windows-server-azure-aws-gcp/
 
 # How to install Habitat on Windows
-Run command "Set-ExecutionPolicy Bypass -Scope Process -Force iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.ps1'))"
-
-
+Run command "Set-ExecutionPolicy Bypass -Scope Process -Force
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.ps1'))"
 
 
 
