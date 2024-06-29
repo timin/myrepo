@@ -37,6 +37,16 @@ make: *** [Makefile:53: build] Error 1
 
 > ${\color{blue}NOTE:}$ To mitigate above error, delete hab artifacts (hab-backline, hab-studio, hab-plan-build etc) from root and local cache. Also delete from "/hab/pkgs/"
 
+> [!CAUTION]
+Error like below is due to unwanted keys which are polluting the environment. Delete such keys
+```
+☛ Verifying core/build-tools-hab-backline/1.6.639/20240629145638
+↓ Downloading core-20180119235000 public origin key
+✗✗✗
+✗✗✗ error sending request for url (https://non-existent/v1/depot/origins/core/keys/20180119235000): error trying to connect: dns error: failed to lookup address information: Temporary failure in name resolution
+✗✗✗
+
+
 
 ======== OLD INSTRUCTIONS ==========
 
