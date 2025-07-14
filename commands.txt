@@ -44,6 +44,8 @@ curl -s https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs/_lates
 
 # How to get latest version of package in particular channel
 https://bldr.habitat.sh/v1/depot/channels/core/refresh2021q2/pkgs/gcc/latest
+curl https://bldr.habitat.sh/v1/depot/channels/chef/stable/pkgs/chef-infra-client/latest?target=x86_64-linux | jq
+
 
 # How to get all repositories names in GitHub organisation
 curl -su timin "https://api.github.com/orgs/chef-base-plans/repos?type=all&sort=full_name&per_page=100&page=1" | jq -r '.[] | "\(.name)"'
@@ -108,3 +110,23 @@ aws ec2 describe-instances --filters file://aws_filter.json | jq '.Reservations[
 
 # list all ec2 isntance running
 aws ec2 describe-instances --filters "Name=key-name,Values=timin_ed25519" --query 'Reservations[*].Instances[*].[InstanceId,KeyName,State.Name,PublicIpAddress,Tags[?Key==\`Name\`].Value]' --output=yaml
+
+# how to get all rdeps (build and run time) of package of list of packages
+hab-auto-build analyze --rdeps --build-rdeps core/bash core/glibc
+
+# how to download self-signed ssl certificate (not CA trusted certificate)
+openssl s_client -connect <server>:443 <<<'' | openssl x509 -out <path_to_file>
+
+# verify ssl certificate data
+openssl x509 -inform PEM -in <path_to_certificate> -text -out <filename>
+
+# How to install Git on Windows
+Ref : https://stackoverflow.com/questions/46731433/how-to-download-and-install-git-client-for-window-using-powershell
+
+# How to install Docker on Windows
+Ref : https://cloudinfrastructureservices.co.uk/how-to-setup-docker-engine-containers-on-windows-server-azure-aws-gcp/
+
+# How to install Habitat on Windows
+Run command "Set-ExecutionPolicy Bypass -Scope Process -Force
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.ps1'))"
+

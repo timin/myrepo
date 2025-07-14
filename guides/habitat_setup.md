@@ -15,13 +15,17 @@ Below are instruction manual to install, configure and connect Habitat to Builde
    **Note: Do not generate origin key using setup, can be downloaded from Builder**
 
 4. Copy SSL certificate of Builder to machine
-5. Configure SSL certificate of Builder in bashrc, adding "export SSL_CERT_FILE=/home/ubuntu/ssl_certificate.pem"
-6. Set Habitat Auth token
-7. Download public origin key using command "hab origin key download core"
-8. Download private key using command "hab origin key download core --secret"
-9. Create directory using command "mkdir -p /home/ubuntu/Refresh/download /home/ubuntu/Refresh/conf /home/ubuntu/Refresh/script"
-10. Change current directory using command "cd /home/ubuntu/Refresh"
-11. Run Studio to build package using command "hab studio enter"
+   
+   "mkdir ~/.hab/cache/ssl"
+
+   "cp ssl_certificate.pem ~/.hab/cache/ssl"
+6. Configure SSL certificate of Builder in bashrc, adding "export SSL_CERT_FILE=/home/ubuntu/.hab/cache/ssl/ssl_certificate.pem"
+7. Set Habitat Auth token
+8. Download public origin key using command "hab origin key download core"
+9. Download private key using command "hab origin key download core --secret"
+10. Create directory using command "mkdir -p /home/ubuntu/Refresh/download /home/ubuntu/Refresh/conf /home/ubuntu/Refresh/script"
+11. Change current directory using command "cd /home/ubuntu/Refresh"
+12. Run Studio to build package using command "hab studio enter"
 
       **Note: hab studio will fail to start because essential packages are not present in Builder**
 

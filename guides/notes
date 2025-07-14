@@ -1,0 +1,16 @@
+List of repositories for hab packages team:
+* These are primary repositories where packages source code is hosted,  currently we are migrating packages from core-plans to core-packages and eventually core-plans will be archived.
+  core-plans - https://github.com/habitat-sh/core-plans
+  core-packages - https://github.com/habitat-sh/core-packages
+  effortless - https://github.com/chef/effortless
+
+* These are repositories for tools which help in Package Refresh at various stages during the course, collaborated with habitat core team
+  hab-auto-build - https://github.com/habitat-sh/hab-auto-build
+  release-monitor - https://github.com/habitat-sh/release-monitor
+  build-order - https://github.com/habitat-sh/build-order
+
+* These repositories are hosting documentations, discussions , how-to etc
+  core-plan-dev - https://github.com/habitat-sh/core-plans-dev
+  habitat-coreplan-refresher - https://github.com/habitat-sh/habitat-coreplan-refresher
+
+* Apart from above, we have chef-base-plans (https://github.com/chef-base-plans) organisation which is now archived, used for commit history or changelogs
